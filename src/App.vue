@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Loading from "./views/Loading.vue";
 import PageHeader from "./components/Layout/PageHeader.vue";
+import PageFooter from "./components/Layout/PageFooter.vue";
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import PageHeader from "./components/Layout/PageHeader.vue";
       <Loading />
     </template>
   </Suspense>
+  <PageFooter />
 </template>
 
 <style lang="scss" module>
