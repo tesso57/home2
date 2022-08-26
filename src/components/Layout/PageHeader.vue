@@ -1,6 +1,16 @@
 <template>
   <div :class="$style.container">
     <div :class="$style.title">tesso.dev</div>
+    <div>
+      <router-link to="/">
+        hello
+      </router-link>
+    </div>
+    <div>
+      <router-link to="/form">
+        form
+      </router-link>
+    </div>
   </div>
 </template>
 

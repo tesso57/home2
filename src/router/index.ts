@@ -1,3 +1,4 @@
+import Form from "@/views/Form.vue";
 import Profile from "@/views/Profile.vue";
 import { createRouter, createWebHistory } from "vue-router";
 // import HomeView from '../views/HomeView.vue'
@@ -10,6 +11,11 @@ const router = createRouter({
       name: "Profile",
       component: Profile,
     },
+    {
+      path: "/form",
+      name: "Form",
+      component: Form
+    }
     // {
     //   path: '/about',
     //   name: 'about',
