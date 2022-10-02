@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import SectionHeader from "./SectionHeader.vue";
-const props = defineProps<{ name: string }>();
+import SectionHeader from './SectionHeader.vue'
+const props = defineProps<{ name: string }>()
 </script>
 
 <template>
