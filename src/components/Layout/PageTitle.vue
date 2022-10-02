@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Icon from '../UI/Icon.vue'
+import Icon from "../UI/Icon.vue";
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import Icon from '../UI/Icon.vue'
 
 <style lang="scss" module>
 .title {
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: "Do Hyeon", sans-serif;
   font-size: 2.5rem;
 }
 

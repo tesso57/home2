@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import PageTitle from "../components/Layout/PageTitle.vue";
-import PageContainter from "../components/Layout/PageContainter.vue";
+import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
 import Icon from "../components/UI/Icon.vue";
 </script>
 
 <template>
-  <PageContainter :class="$style.container">
+  <PageContainer :class="$style.container">
     <PageTitle />
     <SectionContainer name="Name">
       <p>tesso(てっそ)</p>
@@ -38,7 +38,11 @@ import Icon from "../components/UI/Icon.vue";
         <p>GitHub</p>
       </ExternalLink>
       <ExternalLink href="https://note.com/tesso57">
-        <img src="@/assets/note.svg" :class="[$style.icon, $style.note]" />
+        <img
+          src="@/assets/note.svg"
+          :class="[$style.icon, $style.note]"
+          alt="note"
+        />
         <p>Note</p>
       </ExternalLink>
       <ExternalLink href="https://twitter.com/tesso57">
@@ -50,7 +54,7 @@ import Icon from "../components/UI/Icon.vue";
         <p>mail@tesso.dev</p>
       </ExternalLink>
     </SectionContainer>
-  </PageContainter>
+  </PageContainer>
 </template>
 
 <style lang="scss" module>

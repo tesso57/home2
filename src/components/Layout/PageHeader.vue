@@ -17,6 +17,6 @@
 .title {
   color: $color-primary;
   font-size: 1.5rem;
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: "Do Hyeon", sans-serif;
 }
 </style>
