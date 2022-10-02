@@ -34,6 +34,11 @@ const props = defineProps<{
         color: $color-highlight;
         border: 1px dashed $color-highlight;
     }
+
+    @media (max-width: 768px) {
+        padding: 0;
+        gap: 0.5rem;
+    }
 }
 </style>
 

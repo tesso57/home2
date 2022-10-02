@@ -90,6 +90,7 @@ import Icon from "../components/UI/Icon.vue";
 .caption {
   font-size: 0.75rem;
   font-family: "Reem Kufi Fun", sans-serif;
+  justify-content: flex-end;
 }
 
 .icon {
