@@ -12,7 +12,7 @@ const props = defineProps<{
     <router-link :to="props.to">
         <div :class="$style.container">
             <Icon :name="props.icon" />
-            <p :class="$style.paragraph">{{props.paragraph}}</p>
+            <h3>{{props.paragraph}}</h3>
         </div>
     </router-link>
 
@@ -34,11 +34,6 @@ const props = defineProps<{
         color: $color-highlight;
         border: 1px dashed $color-highlight;
     }
-}
-
-.paragraph {
-    font-family: "Do Hyeon", sans-serif;
-    font-size: 1.125rem;
 }
 </style>
 

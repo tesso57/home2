@@ -49,9 +49,6 @@ import PageHeaderChoice from "./PageHeaderChoice.vue";
 
 .title {
   color: $color-highlight;
-  font-size: 1.5rem;
-  font-family: "Do Hyeon", sans-serif;
-  font-weight: normal;
   cursor: pointer;
 }
 </style>

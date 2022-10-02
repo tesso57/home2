@@ -7,5 +7,10 @@
   },
   "extends": [
     "markuplint:recommended"
-  ]
+  ],
+  "rules": {
+    "invalid-attr": {
+      "option": {}
+    }
+  }
 }

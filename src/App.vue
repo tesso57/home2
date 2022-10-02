@@ -7,10 +7,10 @@ import PageFooter from "./components/Layout/PageFooter.vue";
 <template>
   <PageHeader />
   <Suspense>
-    <template #default>
+    <template v-slot:default>
       <router-view :class="$style.main" />
     </template>
-    <template #fallback>
+    <template v-slot:fallback>
       <Loading />
     </template>
   </Suspense>

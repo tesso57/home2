@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PageTitle from "../components/Layout/PageTitle.vue";
 import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
@@ -8,31 +7,45 @@ import Icon from "../components/UI/Icon.vue";
 
 <template>
   <PageContainer :class="$style.container">
-    <PageTitle />
-    <SectionContainer name="Name">
-      <p>tesso(てっそ)</p>
-      <p>tesso57</p>
-    </SectionContainer>
-    <SectionContainer name="Belonging">
+    <div :class="$style.title">
+      <h1>tesso</h1>
+      <p :class="$style.caption">@tesso57</p>
+    </div>
+    <SectionContainer>
+      <template v-slot:header>
+        <h2>Belonging</h2>
+      </template>
       <ExternalLink href="https://trap.jp">
         <p>東京工業大学デジタル同好会traP</p>
       </ExternalLink>
     </SectionContainer>
-    <SectionContainer name="About">
+    <SectionContainer>
+      <template v-slot:header>
+        <h2>About</h2>
+      </template>
       <p>
         暗号とゲーム制作が好きです。大学では、数学とコンピュータの勉強してます。
       </p>
     </SectionContainer>
-    <SectionContainer name="Skills">
+    <SectionContainer>
+      <template v-slot:header>
+        <h2>Skills</h2>
+      </template>
       <p>C#</p>
       <p>C++</p>
       <p>JavaScript</p>
     </SectionContainer>
-    <SectionContainer name="Likes">
+    <SectionContainer>
+      <template v-slot:header>
+        <h2>Likes</h2>
+      </template>
       <p>プログラミング</p>
       <p>FPSゲーム</p>
     </SectionContainer>
-    <SectionContainer name="Linkes">
+    <SectionContainer>
+      <template v-slot:header>
+        <h2>Links</h2>
+      </template>
       <ExternalLink href="https://github.com/tesso57">
         <Icon name="mdi:github" :class="[$style.icon, $style.github]" />
         <p>GitHub</p>
@@ -58,6 +71,25 @@ import Icon from "../components/UI/Icon.vue";
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  padding: 1rem;
+  background-color: $color-white;
+
+  border: 3px solid $color-highlight;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.caption {
+  font-size: 0.75rem;
+  font-family: "Reem Kufi Fun", sans-serif;
 }
 
 .icon {
