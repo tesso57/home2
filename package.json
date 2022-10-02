@@ -8,8 +8,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "prepare": "husky install",
-    "format": "prettier --write --cache"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@iconify/iconify": "^2.2.1",
@@ -21,9 +20,6 @@
   "lint-staged": {
     "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
       "eslint --fix"
-    ],
-    "*.{yaml,json,md,html,vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
-      "prettier --write --cache"
     ]
   },
   "devDependencies": {

@@ -38,11 +38,7 @@ import Icon from "../components/UI/Icon.vue";
         <p>GitHub</p>
       </ExternalLink>
       <ExternalLink href="https://note.com/tesso57">
-        <img
-          src="@/assets/note.svg"
-          :class="[$style.icon, $style.note]"
-          alt="note"
-        />
+        <img src="@/assets/note.svg" :class="[$style.icon, $style.note]" alt="note" />
         <p>Note</p>
       </ExternalLink>
       <ExternalLink href="https://twitter.com/tesso57">

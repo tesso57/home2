@@ -1,10 +1,10 @@
-@import '../node_modules/ress/ress.css';
+@import "../node_modules/ress/ress.css";
 
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=M+PLUS+1:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=M+PLUS+1:wght@400;700&display=swap");
 
 body {
-  color: $color-text;
-  font-family: 'M PLUS 1', sans-serif;
+  color: $color-paragraph;
+  font-family: "M PLUS 1", sans-serif;
 }
 
 body,
@@ -15,4 +15,6 @@ body,
 #app {
   display: flex;
   flex-direction: column;
+
+  padding: 1rem;
 }
