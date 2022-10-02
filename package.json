@@ -19,7 +19,12 @@
     "vue-router": "^4.1.3"
   },
   "lint-staged": {
-    "**/*": ["eslint" , "prettier --write --ignore-unknown"]
+    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
+      "eslint --fix"
+    ],
+    "*.{yaml,json,md,html,vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
+      "prettier --write --cache"
+    ]
   },
   "devDependencies": {
     "@iconify/json": "^2.1.90",

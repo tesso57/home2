@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import PageTitle from '../components/Layout/PageTitle.vue'
-import PageContainter from '../components/Layout/PageContainter.vue'
-import SectionContainer from '../components/Layout/SectionContainer.vue'
-import ExternalLink from '../components/UI/ExternalLink.vue'
-import Icon from '../components/UI/Icon.vue'
+import PageTitle from "../components/Layout/PageTitle.vue"
+import PageContainter from "../components/Layout/PageContainter.vue"
+import SectionContainer from "../components/Layout/SectionContainer.vue"
+import ExternalLink from "../components/UI/ExternalLink.vue"
+import Icon from "../components/UI/Icon.vue"
 </script>
 
 <template>
