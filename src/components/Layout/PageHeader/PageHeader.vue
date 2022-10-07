@@ -94,13 +94,11 @@ async function leave(el: Element, done: () => void) {
 
   background-color: $color-white;
 
+  overflow: hidden;
+
   @media (max-width: 768px) {
     align-items: start;
   }
-
-  transition: all 1s ease-in-out;
-  overflow: hidden;
-
 }
 
 .nav {
@@ -125,41 +123,10 @@ async function leave(el: Element, done: () => void) {
     align-items: start;
     gap: 1rem;
   }
-
-  transition: all 0.5s ease-in-out;
 }
 
 .title {
   color: $color-highlight;
   cursor: pointer;
-}
-
-.menu {
-  padding: 6px;
-}
-
-.open {
-  &:global(-enter-active) {
-    animation: open-in 0.5s ease-in-out;
-  }
-
-  &:global(-leave-active) {
-    animation: open-in 0.5s reverse;
-  }
-}
-
-
-@keyframes open-in {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(50%);
-  }
-
-  100% {
-    transform: translateY(100%);
-  }
 }
 </style>
