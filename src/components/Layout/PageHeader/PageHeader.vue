@@ -1,28 +1,62 @@
 <script setup lang="ts">
 import PageHeaderChoice from "./PageHeaderChoice.vue";
-import Icon from "../UI/Icon.vue";
 import { onUnmounted, onMounted, ref } from "vue";
+import PageHeaderToggleButton from "./PageHeaderToggleButton.vue";
 
-const isMobile = ref(window.innerWidth > 768);
+const isMobile = ref(window.innerWidth < 768);
 
-const isOpen = ref(false);
+const isOpen = ref(true);
 
-const onClick = () => {
-  isOpen.value = !isOpen.value;
-};
 
 onMounted(() => {
   window.addEventListener("resize", () => {
-    isMobile.value = window.innerWidth > 768;
+    isMobile.value = window.innerWidth < 768;
   });
 
 });
 
 onUnmounted(() => {
   window.removeEventListener("resize", () => {
-    isMobile.value = window.innerWidth > 768;
+    isMobile.value = window.innerWidth < 768;
   });
 });
+
+async function enter(el: Element, done: () => void) {
+  await el.animate(
+    [
+      {
+        height: 0,
+      },
+      {
+        height: `${(el as HTMLElement).offsetHeight}px`,
+      },
+    ],
+    {
+      duration: 200,
+      easing: "ease-out",
+    }
+  ).finished;
+  done();
+}
+
+// 閉まるとき
+async function leave(el: Element, done: () => void) {
+  await el.animate(
+    [
+      {
+        height: `${(el as HTMLElement).offsetHeight}px`,
+      },
+      {
+        height: 0,
+      },
+    ],
+    {
+      duration: 100,
+      easing: "ease-out",
+    }
+  ).finished;
+  done();
+}
 </script>
 
 <template>
@@ -33,14 +67,15 @@ onUnmounted(() => {
           tesso.dev
         </h1>
       </router-link>
-      <div :class="$style.links" v-if="isMobile || isOpen" :data-is-open="isOpen">
-        <PageHeaderChoice icon="mdi:account" paragraph="Profile" to="/" />
-        <PageHeaderChoice icon="mdi:pencil" paragraph="Works" to="/" />
-        <PageHeaderChoice icon="mdi:document" paragraph="Blog" to="/" />
-      </div>
+      <Transition @enter="enter" @leave="leave">
+        <div :class="$style.links" v-if="!isMobile || isOpen" :data-is-open="isOpen">
+          <PageHeaderChoice icon="mdi:account" paragraph="Profile" to="/" />
+          <PageHeaderChoice icon="mdi:pencil" paragraph="Works" to="/" />
+          <PageHeaderChoice icon="mdi:document" paragraph="Blog" to="/" />
+        </div>
+      </Transition>
     </div>
-    <Icon name="mdi:menu" :class="$style.menu" v-show="!isMobile && !isOpen" :onclick="onClick" />
-    <Icon name="mdi:close" :class="$style.menu" v-show="!isMobile && isOpen" :onclick="onClick" />
+    <PageHeaderToggleButton v-model="isOpen" v-if="isMobile" />
   </div>
 </template>
 
@@ -62,6 +97,9 @@ onUnmounted(() => {
   @media (max-width: 768px) {
     align-items: start;
   }
+
+  transition: all 1s ease-in-out;
+  overflow: hidden;
 
 }
 
@@ -87,6 +125,8 @@ onUnmounted(() => {
     align-items: start;
     gap: 1rem;
   }
+
+  transition: all 0.5s ease-in-out;
 }
 
 .title {
