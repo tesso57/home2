@@ -128,5 +128,6 @@ async function leave(el: Element, done: () => void) {
 .title {
   color: $color-highlight;
   cursor: pointer;
+  font-weight: normal;
 }
 </style>
