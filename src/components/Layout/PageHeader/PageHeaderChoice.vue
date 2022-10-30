@@ -1,44 +1,63 @@
 <script setup lang="ts">
 import Icon from "@/components/UI/Icon.vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 const props = defineProps<{
-    icon: string;
-    paragraph: string;
-    to: string;
+  icon: string;
+  paragraph: string;
+  to: string;
 }>();
+
+const currentRoute = useRoute();
+
+const isActive = computed(() => {
+  if (props.to === "/") {
+    return currentRoute.path === "/";
+  } else {
+    return currentRoute.path.startsWith(`${props.to}`);
+  }
+});
 </script>
 
 <template>
-    <router-link :to="props.to">
-        <div :class="$style.container">
-            <Icon :name="props.icon" />
-            <h3>{{props.paragraph}}</h3>
-        </div>
-    </router-link>
-
+  <router-link :to="props.to">
+    <div :class="$style.container">
+      <Icon :name="props.icon" />
+      <h3 :class="$style.header" :data-is-active="isActive">
+        {{ props.paragraph }}
+      </h3>
+    </div>
+  </router-link>
 </template>
 
 <style lang="scss" module>
 .container {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 
-    padding: 0 1rem;
+  padding: 0 1rem;
 
-    border-radius: 16rem;
-    box-sizing: border-box;
-    border: 1px dashed $color-background;
+  border-radius: 16rem;
+  box-sizing: border-box;
+  border: 1px dashed $color-background;
 
-    &:hover {
-        color: $color-highlight;
-        border: 1px dashed $color-highlight;
-    }
+  &:hover {
+    color: $color-highlight;
+    border: 1px dashed $color-highlight;
+  }
 
-    @media (max-width: 768px) {
-        padding: 0;
-        gap: 0.5rem;
-    }
+  @media (max-width: 768px) {
+    padding: 0;
+    gap: 0.5rem;
+  }
+}
+
+.header {
+  font-weight: normal;
+  &[data-is-active="true"] {
+    font-weight: bold;
+  }
 }
 </style>
-

@@ -70,8 +70,8 @@ async function leave(el: Element, done: () => void) {
           :data-is-open="isOpen"
         >
           <PageHeaderChoice icon="mdi:account" paragraph="Profile" to="/" />
-          <PageHeaderChoice icon="mdi:pencil" paragraph="Works" to="/" />
-          <PageHeaderChoice icon="mdi:document" paragraph="Blog" to="/" />
+          <PageHeaderChoice icon="mdi:pencil" paragraph="Works" to="/works" />
+          <PageHeaderChoice icon="mdi:document" paragraph="Blog" to="/blog" />
         </div>
       </Transition>
     </div>
