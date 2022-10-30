@@ -7,12 +7,10 @@ const isMobile = ref(window.innerWidth < 768);
 
 const isOpen = ref(true);
 
-
 onMounted(() => {
   window.addEventListener("resize", () => {
     isMobile.value = window.innerWidth < 768;
   });
-
 });
 
 onUnmounted(() => {
@@ -63,12 +61,14 @@ async function leave(el: Element, done: () => void) {
   <div :class="$style.container">
     <div :class="$style.nav">
       <router-link to="/">
-        <h1 :class="$style.title">
-          tesso.dev
-        </h1>
+        <h1 :class="$style.title">tesso.dev</h1>
       </router-link>
       <Transition @enter="enter" @leave="leave">
-        <div :class="$style.links" v-if="!isMobile || isOpen" :data-is-open="isOpen">
+        <div
+          :class="$style.links"
+          v-if="!isMobile || isOpen"
+          :data-is-open="isOpen"
+        >
           <PageHeaderChoice icon="mdi:account" paragraph="Profile" to="/" />
           <PageHeaderChoice icon="mdi:pencil" paragraph="Works" to="/" />
           <PageHeaderChoice icon="mdi:document" paragraph="Blog" to="/" />
