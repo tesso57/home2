@@ -1,21 +1,25 @@
 <script setup lang="ts">
+import { formatDuration, type Duration } from "@/lib/date";
+
 interface Prop {
   title: string;
   description: string;
   imageUrl: string;
-  link: string;
+  duration: Duration;
 }
 
-defineProps<Prop>();
+const props = defineProps<Prop>();
+
+const duration = formatDuration(props.duration);
 </script>
 
 <template>
   <div :class="$style.container">
-    <img src="@/assets/Image.png" alt="No Image" :class="$style.image" />
+    <img :src="imageUrl" alt="No Image" :class="$style.image" />
     <div :class="$style.content">
       <h2 :class="$style.title">{{ title }}</h2>
       <p :class="$style.caption">{{ description }}</p>
-      <p :class="$style.caption">xxxx/xx/xx ~ xxxx/xx/xx</p>
+      <p :class="$style.caption">{{ duration }}</p>
     </div>
   </div>
 </template>
@@ -25,7 +29,8 @@ defineProps<Prop>();
   display: flex;
   flex-direction: column;
   border-radius: 8px;
-  border: 1px solid $color-card-background;
+  border: 3px solid $color-card-background;
+  overflow: hidden;
 }
 .content {
   display: flex;
