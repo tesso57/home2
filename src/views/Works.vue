@@ -4,11 +4,12 @@ import WorkList from "@/components/Works/WorkList.vue";
 import type { Work } from "@/lib/work";
 
 import NoImage from "@/assets/Image.png";
+import WorkModal from "@/components/Works/WorkModal.vue";
 
 const mock: Work[] = [
   {
-    title: "Title",
-    description: "Description",
+    title: "Portfolio",
+    description: "これ。Vueで作った。",
     imageUrl: NoImage,
     duration: {
       since: new Date(),
@@ -16,8 +17,8 @@ const mock: Work[] = [
     },
   },
   {
-    title: "Title",
-    description: "Description",
+    title: "PrestoRay",
+    description: "Unity",
     imageUrl: NoImage,
     duration: {
       since: new Date(),
@@ -38,5 +39,13 @@ const mock: Work[] = [
 <template>
   <PageContainer>
     <WorkList :works="mock" />
+    <!-- <WorkModal
+      title="てすと"
+      description="こんにちは"
+      link="https://tesso.dev/"
+      :image-url="NoImage"
+      :duration="{ since: new Date() }"
+      :tags="['test']"
+    /> -->
   </PageContainer>
 </template>

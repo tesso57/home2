@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { formatDuration, type Duration } from "@/lib/date";
 
-interface Prop {
+interface Props {
   title: string;
   description: string;
   imageUrl: string;
   duration: Duration;
 }
 
-const props = defineProps<Prop>();
+const props = defineProps<Props>();
 
 const duration = formatDuration(props.duration);
 </script>

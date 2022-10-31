@@ -2,11 +2,11 @@
 import type { Work } from "@/lib/work";
 import WorkItem from "./WorkItem.vue";
 
-interface Prop {
+interface Props {
   works: Work[];
 }
 
-defineProps<Prop>();
+defineProps<Props>();
 </script>
 
 <template>
