@@ -59,5 +59,8 @@ const isActive = computed(() => {
   &[data-is-active="true"] {
     font-weight: bold;
   }
+  &:hover {
+    color: $color-highlight;
+  }
 }
 </style>

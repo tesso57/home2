@@ -16,7 +16,7 @@ import Icon from "../components/UI/Icon.vue";
         <h2>Belonging</h2>
       </template>
       <ExternalLink href="https://trap.jp">
-        <p>東京工業大学デジタル同好会traP</p>
+        <p :class="$style.link">東京工業大学デジタル同好会traP</p>
       </ExternalLink>
     </SectionContainer>
     <SectionContainer>
@@ -48,19 +48,23 @@ import Icon from "../components/UI/Icon.vue";
       </template>
       <ExternalLink href="https://github.com/tesso57">
         <Icon name="mdi:github" :class="[$style.icon, $style.github]" />
-        <p>GitHub</p>
+        <p :class="$style.link">GitHub</p>
       </ExternalLink>
       <ExternalLink href="https://note.com/tesso57">
-        <img src="@/assets/note.svg" :class="[$style.icon, $style.note]" alt="note" />
-        <p>Note</p>
+        <img
+          src="@/assets/note.svg"
+          :class="[$style.icon, $style.note]"
+          alt="note"
+        />
+        <p :class="$style.link">Note</p>
       </ExternalLink>
       <ExternalLink href="https://twitter.com/tesso57">
         <Icon name="mdi:twitter" :class="[$style.icon, $style.twitter]" />
-        <p>twitter</p>
+        <p :class="$style.link">twitter</p>
       </ExternalLink>
       <ExternalLink href="mailto:mail@tesso.dev">
         <Icon name="mdi:email" :class="$style.icon" />
-        <p>mail@tesso.dev</p>
+        <p :class="$style.link">mail@tesso.dev</p>
       </ExternalLink>
     </SectionContainer>
   </PageContainer>
@@ -78,7 +82,6 @@ import Icon from "../components/UI/Icon.vue";
   border: 3px solid $color-highlight;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
-
 }
 
 .title {
@@ -108,5 +111,9 @@ import Icon from "../components/UI/Icon.vue";
 
 .twitter {
   color: #1da1f2;
+}
+
+.link {
+  color: $color-secondary;
 }
 </style>

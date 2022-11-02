@@ -2,8 +2,9 @@
 import { formatDuration, type Duration } from "@/lib/date";
 
 interface Props {
+  id: number;
   title: string;
-  description: string;
+  tags: string[];
   imageUrl: string;
   duration: Duration;
 }
@@ -11,14 +12,29 @@ interface Props {
 const props = defineProps<Props>();
 
 const duration = formatDuration(props.duration);
+
+const emit = defineEmits<{
+  (e: "open", id: number): void;
+}>();
+
+const onClick = () => {
+  emit("open", props.id);
+};
 </script>
 
 <template>
-  <div :class="$style.container">
-    <img :src="imageUrl" alt="No Image" :class="$style.image" />
+  <div :class="$style.container" @click="onClick">
+    <div :class="$style.imageContainer">
+      <img
+        :class="$style.image"
+        :src="imageUrl"
+        alt="No Image"
+        loading="lazy"
+      />
+    </div>
     <div :class="$style.content">
       <h2 :class="$style.title">{{ title }}</h2>
-      <p :class="$style.caption">{{ description }}</p>
+      <p :class="[$style.caption, $style.tags]">{{ tags.join(" ") }}</p>
       <p :class="$style.caption">{{ duration }}</p>
     </div>
   </div>
@@ -26,20 +42,44 @@ const duration = formatDuration(props.duration);
 
 <style lang="scss" module>
 .container {
+  background-color: white;
+
   display: flex;
   flex-direction: column;
+
   border-radius: 8px;
   border: 3px solid $color-card-background;
+
   overflow: hidden;
+
+  cursor: pointer;
+
+  min-height: 10rem;
 }
 .content {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
+  gap: 0.25rem;
 }
 
 .image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: math.div(9, 16) * 100%;
+  }
 }
 
 .title {
@@ -49,5 +89,9 @@ const duration = formatDuration(props.duration);
 
 .caption {
   font-size: 0.75rem;
+}
+
+.tags {
+  color: $color-boundary-black;
 }
 </style>

@@ -17,14 +17,27 @@ const close = () => emit("close");
 .container {
   position: absolute;
   z-index: 1;
+
   width: 100%;
-  height: 100%;
-  padding: 1rem;
+  min-height: 100vh;
+
+  padding: 3rem;
   background-color: rgb(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>

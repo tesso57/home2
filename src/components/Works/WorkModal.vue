@@ -18,18 +18,26 @@ interface Props {
 const props = defineProps<Props>();
 
 const duration = formatDuration(props.duration);
+
+const emit = defineEmits<{ (e: "close"): void }>();
+const close = () => emit("close");
 </script>
 
 <template>
-  <ModalTemplate>
+  <ModalTemplate @close="close">
     <div :class="$style.container">
       <img :src="imageUrl" alt="No Image" :class="$style.image" />
-      <h1>{{ title }}</h1>
-      <p>{{ description }}</p>
-      <p>{{ duration }}</p>
-      <ExternalLink :href="link" :class="$style.link"
-        >ブログ記事はこちら</ExternalLink
-      >
+      <div :class="$style.content">
+        <div :class="$style.title">
+          <h1>{{ title }}</h1>
+          <p :class="$style.duration">{{ duration }}</p>
+        </div>
+        <p :class="$style.tags">{{ tags.join(" ") }}</p>
+        <p :class="$style.description">{{ description }}</p>
+        <ExternalLink :href="link" :class="$style.link"
+          >ブログ記事はこちら</ExternalLink
+        >
+      </div>
     </div>
   </ModalTemplate>
 </template>
@@ -47,8 +55,29 @@ const duration = formatDuration(props.duration);
   }
 }
 
+.content {
+  padding: 0.5rem;
+}
+
 .image {
   object-fit: cover;
   width: 100%;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duration {
+  color: $color-boundary-black;
+}
+.tags {
+  color: $color-boundary-black;
+}
+
+.description {
+  margin: 0.5rem 0;
 }
 </style>
