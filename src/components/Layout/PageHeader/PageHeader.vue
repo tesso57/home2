@@ -5,7 +5,7 @@ import PageHeaderToggleButton from "./PageHeaderToggleButton.vue";
 
 const isMobile = ref(window.innerWidth < 768);
 
-const isOpen = ref(true);
+const isOpen = ref(false);
 
 onMounted(() => {
   window.addEventListener("resize", () => {
