@@ -19,7 +19,7 @@
     {
       "name": "Note",
       "type": "img",
-      "icon": "/src/assets/note.svg",
+      "icon": "note.svg",
       "url": "https://note.com/tesso57",
       "color": "#41c9b4"
     },
