@@ -1,25 +1,23 @@
 <script setup lang="ts">
-import { formatDuration, type Duration } from "@/lib/date";
-
+import { formatDuration } from "@/lib/date";
+import type { Work } from "@/lib/work";
+import { ref } from "vue";
+import WorkModal from "./WorkModal.vue";
 interface Props {
-  id: number;
-  title: string;
-  tags: string[];
-  imageUrl: string;
-  duration: Duration;
+  work: Work;
 }
 
 const props = defineProps<Props>();
 
-const duration = formatDuration(props.duration);
-
-const emit = defineEmits<{
-  (e: "open", id: number): void;
-}>();
+const duration = formatDuration(props.work.duration);
 
 const onClick = () => {
-  emit("open", props.id);
+  isOpen.value = true;
 };
+const handleClose = () => {
+  isOpen.value = false;
+};
+const isOpen = ref(false);
 </script>
 
 <template>
@@ -27,17 +25,27 @@ const onClick = () => {
     <div :class="$style.imageContainer">
       <img
         :class="$style.image"
-        :src="imageUrl"
+        :src="work.imageUrl"
         alt="No Image"
         loading="lazy"
       />
     </div>
     <div :class="$style.content">
-      <h2 :class="$style.title">{{ title }}</h2>
-      <p :class="[$style.caption, $style.tags]">{{ tags.join(" ") }}</p>
+      <h2 :class="$style.title">{{ work.title }}</h2>
+      <p :class="[$style.caption, $style.tags]">{{ work.tags.join(" ") }}</p>
       <p :class="$style.caption">{{ duration }}</p>
     </div>
   </div>
+  <WorkModal
+    v-if="isOpen"
+    :title="work.title"
+    :description="work.description"
+    :link="work.link"
+    :image-url="work.imageUrl"
+    :duration="work.duration"
+    :tags="work.tags"
+    @close="handleClose"
+  />
 </template>
 
 <style lang="scss" module>
