@@ -15,7 +15,10 @@ const isActive = computed(() => {
   if (props.to === "/") {
     return currentRoute.path === "/";
   } else {
-    return currentRoute.path.startsWith(`${props.to}`);
+    return (
+      currentRoute.path === props.to ||
+      currentRoute.path.startsWith(`${props.to}/`)
+    );
   }
 });
 </script>
@@ -56,11 +59,9 @@ const isActive = computed(() => {
 
 .header {
   font-weight: normal;
+  color: inherit;
   &[data-is-active="true"] {
     font-weight: bold;
-  }
-  &:hover {
-    color: $color-highlight;
   }
 }
 </style>
