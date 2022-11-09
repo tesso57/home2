@@ -1,0 +1,41 @@
+{
+  "name": "tesso",
+  "id": "@tesso57",
+  "belonging": {
+    "name": "東京工業大学デジタル同好会traP",
+    "link": "https://trap.jp"
+  },
+  "about": "暗号とWebとゲームが好きです。大学では、数学とコンピュータの勉強してます。サークルでは、フロントエンドとゲーム制作してます。",
+  "skills": ["C#", "C++", "Javascript", "Unity", "Vue.js"],
+  "likes": ["プログラミング", "FPS"],
+  "links": [
+    {
+      "name": "Github",
+      "type": "icon",
+      "icon": "mdi:github",
+      "url": "https://github.com/tesso57",
+      "color": "#171515"
+    },
+    {
+      "name": "Note",
+      "type": "img",
+      "icon": "/src/assets/note.svg",
+      "url": "https://note.com/tesso57",
+      "color": "#41c9b4"
+    },
+    {
+      "name": "Twitter",
+      "type": "icon",
+      "icon": "mdi:twitter",
+      "url": "https://twitter.com/tesso57",
+      "color": "#1da1f2"
+    },
+    {
+      "name": "mail@tesso.dev",
+      "type": "icon",
+      "icon": "mdi:email",
+      "url": "mailto:mail@tesso.dev",
+      "color": "#7ace8a"
+    }
+  ]
+}
