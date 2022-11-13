@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { formatDuration } from "@/lib/date";
 import type { Work } from "@/lib/work";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import WorkModal from "./WorkModal.vue";
+import NoImage from "@/assets/Image.png";
+
 interface Props {
   work: Work;
 }
@@ -18,6 +20,17 @@ const handleClose = () => {
   isOpen.value = false;
 };
 const isOpen = ref(false);
+
+const Urls = import.meta.glob<string>("../../assets/*.(svg|png)", {
+  eager: true,
+  import: "default",
+});
+
+const imageUrl = computed(
+  () => Urls[`../../assets/${props.work.imageUrl}`] ?? NoImage
+);
+
+console.log(props.work);
 </script>
 
 <template>
@@ -25,7 +38,7 @@ const isOpen = ref(false);
     <div :class="$style.imageContainer">
       <img
         :class="$style.image"
-        :src="work.imageUrl"
+        :src="imageUrl"
         alt="No Image"
         loading="lazy"
       />
@@ -41,7 +54,7 @@ const isOpen = ref(false);
     :title="work.title"
     :description="work.description"
     :link="work.link"
-    :image-url="work.imageUrl"
+    :image-url="imageUrl"
     :duration="work.duration"
     :tags="work.tags"
     @close="handleClose"
