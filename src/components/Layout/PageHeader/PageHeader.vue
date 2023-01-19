@@ -64,11 +64,7 @@ async function leave(el: Element, done: () => void) {
         <h1 :class="$style.title">tesso.dev</h1>
       </router-link>
       <Transition @enter="enter" @leave="leave">
-        <div
-          :class="$style.links"
-          v-if="!isMobile || isOpen"
-          :data-is-open="isOpen"
-        >
+        <div :class="$style.links" v-if="!isMobile || isOpen" :data-is-open="isOpen">
           <PageHeaderChoice icon="mdi:account" paragraph="Profile" to="/" />
           <PageHeaderChoice icon="mdi:pencil" paragraph="Works" to="/works" />
           <PageHeaderChoice icon="mdi:document" paragraph="Blog" to="/blog" />
@@ -86,6 +82,9 @@ async function leave(el: Element, done: () => void) {
   justify-content: space-between;
 
   padding: 1rem 2.5rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 
   border-radius: 1rem;
   border: solid 3px $color-highlight;

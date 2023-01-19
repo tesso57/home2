@@ -16,18 +16,23 @@ const close = () => emit("close");
 <style lang="scss" module>
 .container {
   position: absolute;
-  z-index: 1;
-
-  width: 100%;
-  min-height: 100vh;
-
-  padding: 3rem;
-  background-color: rgb(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem;
+
+  overflow: {
+    x: hidden;
+    y: auto;
+  }
+
+  background-color: rgb(0, 0, 0, 0.5);
+
 
   animation: fadeIn 0.2s;
 }

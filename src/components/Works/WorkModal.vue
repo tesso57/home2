@@ -42,11 +42,12 @@ const close = () => emit("close");
 
 <style lang="scss" module>
 .container {
+  z-index: 1;
   background-color: white;
   border-radius: 0.5rem;
   border: 3px solid $color-card-background;
   width: 50%;
-  overflow: hidden;
+
 
   @media (max-width: 768px) {
     width: 80%;

@@ -6,20 +6,23 @@ import PageFooter from "@/components/Layout/PageFooter.vue";
 
 <template>
   <PageHeader />
-  <Suspense>
-    <template v-slot:default>
-      <router-view :class="$style.main" />
-    </template>
-    <template v-slot:fallback>
-      <Loading />
-    </template>
-  </Suspense>
-  <PageFooter />
+  <main :class="$style.main">
+    <Suspense>
+      <template v-slot:default>
+        <router-view />
+      </template>
+      <template v-slot:fallback>
+        <Loading />
+      </template>
+    </Suspense>
+    <PageFooter />
+  </main>
 </template>
 
 <style lang="scss" module>
 .main {
-  flex: 1;
-  padding-bottom: 1rem;
+  position: relative;
+  flex: 1 1;
+  overflow: hidden auto;
 }
 </style>
