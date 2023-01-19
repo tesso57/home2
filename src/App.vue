@@ -21,6 +21,5 @@ import PageFooter from "@/components/Layout/PageFooter.vue";
 <style lang="scss" module>
 .main {
   flex: 1;
-  padding-bottom: 1rem;
 }
 </style>

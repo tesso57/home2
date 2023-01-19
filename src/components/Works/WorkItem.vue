@@ -21,7 +21,7 @@ const handleClose = () => {
 };
 const isOpen = ref(false);
 
-const Urls = import.meta.glob<string>("../../assets/*.(svg|png)", {
+const Urls = import.meta.glob<string>("../../assets/*.(svg|png|gif)", {
   eager: true,
   import: "default",
 });
@@ -30,18 +30,12 @@ const imageUrl = computed(
   () => Urls[`../../assets/${props.work.imageUrl}`] ?? NoImage
 );
 
-console.log(props.work);
 </script>
 
 <template>
   <div :class="$style.container" @click="onClick">
     <div :class="$style.imageContainer">
-      <img
-        :class="$style.image"
-        :src="imageUrl"
-        alt="No Image"
-        loading="lazy"
-      />
+      <img :class="$style.image" :src="imageUrl" alt="No Image" loading="lazy" />
     </div>
     <div :class="$style.content">
       <h2 :class="$style.title">{{ work.title }}</h2>
@@ -49,16 +43,8 @@ console.log(props.work);
       <p :class="$style.caption">{{ duration }}</p>
     </div>
   </div>
-  <WorkModal
-    v-if="isOpen"
-    :title="work.title"
-    :description="work.description"
-    :link="work.link"
-    :image-url="imageUrl"
-    :duration="work.duration"
-    :tags="work.tags"
-    @close="handleClose"
-  />
+  <WorkModal v-if="isOpen" :title="work.title" :description="work.description" :link="work.link" :image-url="imageUrl"
+    :duration="work.duration" :tags="work.tags" @close="handleClose" />
 </template>
 
 <style lang="scss" module>
@@ -77,6 +63,7 @@ console.log(props.work);
 
   min-height: 10rem;
 }
+
 .content {
   display: flex;
   flex-direction: column;
@@ -96,6 +83,7 @@ console.log(props.work);
 .imageContainer {
   position: relative;
   width: 100%;
+
   &::before {
     content: "";
     display: block;
