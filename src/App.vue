@@ -15,11 +15,11 @@ import PageFooter from "@/components/Layout/PageFooter.vue";
     </template>
   </Suspense>
   <PageFooter />
-  <div id="modal" />
 </template>
 
 <style lang="scss" module>
 .main {
   flex: 1;
+  padding-bottom: 1rem;
 }
 </style>
