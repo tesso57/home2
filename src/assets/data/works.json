@@ -64,27 +64,5 @@
       "since": "2020/8/30",
       "until": null
     }
-  },
-  {
-    "title": "PrestoRay",
-    "description": "大学１年生で、サークルで製作したゲーム。プログラム担当の一人。",
-    "tags": ["Unity", "C#"],
-    "link": "https://trap.jp/post/1458/",
-    "imageUrl": "prestoray.svg",
-    "duration": {
-      "since": "2020/8/30",
-      "until": null
-    }
-  },
-  {
-    "title": "PrestoRay",
-    "description": "大学１年生で、サークルで製作したゲーム。プログラム担当の一人。",
-    "tags": ["Unity", "C#"],
-    "link": "https://trap.jp/post/1458/",
-    "imageUrl": "prestoray.svg",
-    "duration": {
-      "since": "2020/8/30",
-      "until": null
-    }
   }
 ]
