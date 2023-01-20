@@ -3,7 +3,7 @@
     "public": false,
     "rewrites": [
         {
-            "source": "/(.*)",
+            "source": "/works",
             "destination": "/index.html"
         }
     ],
