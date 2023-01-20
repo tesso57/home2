@@ -7,7 +7,6 @@
             "destination": "/index.html"
         }
     ],
-    "trailingSlash": false,
     "github": {
         "silent": true
     },
