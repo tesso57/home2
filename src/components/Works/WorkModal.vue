@@ -34,7 +34,7 @@ const close = () => emit("close");
         </div>
         <p :class="$style.tags">{{ tags.join(" ") }}</p>
         <p :class="$style.description">{{ description }}</p>
-        <ExternalLink :href="link" :class="$style.link">ブログ記事はこちら</ExternalLink>
+        <ExternalLink :href="link">ブログ記事はこちら</ExternalLink>
       </div>
     </div>
   </ModalTemplate>
