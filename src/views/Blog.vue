@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import PageContainer from "@/components/Layout/PageContainer.vue";
-import Example from "@/assets/posts/test.mdx";
+import BlogCard from "@/components/Blog/BlogCard.vue";
+import {blogs} from "@/lib/blog";
 </script>
 
 <template>
   <PageContainer>
-    <h1>ブログ</h1>
-    <Example />
+    <BlogCard v-for="(blog,id) in blogs" :key="id" :blog="blog"/>
   </PageContainer>
 </template>

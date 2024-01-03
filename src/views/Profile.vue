@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { format } from "@/lib/date";
 import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
@@ -17,8 +18,8 @@ import Link from "@/components/Profile/Link.vue";
         <template v-slot:header>
           <h2>Belonging</h2>
         </template>
-        <ExternalLink :href="Profile.belonging.link">
-          <p :class="$style.link">{{ Profile.belonging.name }}</p>
+        <ExternalLink  v-for="(belonging, id) in Profile.belongings" :key="id" :href="belonging.link">
+          <p :class="$style.link">{{ belonging.name }} ({{ format(new Date(belonging.since)) }} ~)</p>
         </ExternalLink>
       </SectionContainer>
       <SectionContainer>
@@ -61,7 +62,7 @@ import Link from "@/components/Profile/Link.vue";
   padding: 1rem;
   background-color: $color-white;
 
-  border: 3px solid $color-highlight;
+  border: 3px solid $color-card-background;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 1rem;
 }

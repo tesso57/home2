@@ -87,7 +87,7 @@ async function leave(el: Element, done: () => void) {
   margin-right: 1rem;
 
   border-radius: 1rem;
-  border: solid 3px $color-highlight;
+  border: solid 3px $color-card-background;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 

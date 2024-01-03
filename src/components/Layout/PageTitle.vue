@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import Icon from "../UI/Icon.vue";
-</script>
-
 <template>
   <div :class="$style.container">
   </div>

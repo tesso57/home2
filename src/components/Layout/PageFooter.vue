@@ -1,6 +1,6 @@
 <template>
   <footer :class="$style.container">
-    <div :class="$style.copyright">© 2022 tesso</div>
+    <div :class="$style.copyright">© 2024 tesso</div>
   </footer>
 </template>
 
