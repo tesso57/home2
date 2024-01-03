@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { works, type Work } from "@/lib/work";
+import { type Work } from "@/lib/work";
 import WorkItem from "./WorkItem.vue";
 
 interface Props {
