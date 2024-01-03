@@ -50,3 +50,14 @@ p {
   font-size: 1rem;
   font-family: "Noto Sans JP", sans-serif;
 }
+
+ul{
+	margin: 1em 0;
+	padding-left: 40px;
+	list-style-type: disc;
+}
+ol{
+	margin: 1em 0;
+	padding-left: 40px;
+	list-style-type: decimal;
+}
