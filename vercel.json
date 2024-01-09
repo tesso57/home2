@@ -1,15 +1,15 @@
 {
     "cleanUrls": true,
-    "rewrites": [
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
-        }
-    ],
     "trailingSlash": false,
     "github": {
         "silent": true
     },
+    "rewrites": [
+        {
+            "source": "/:path*",
+            "destination": "/index.html"
+        }
+    ],
     "headers": [
         {
             "source": "/assets/(.*)",
