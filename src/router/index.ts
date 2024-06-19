@@ -34,7 +34,7 @@ blogs.forEach((blog) => {
     path: `/blog/${blog.date}`,
     name: blog.title,
     component: Post,
-    props: { blog: { ...blog, date: new Date(blog.date) } },
+    props: { blog: { ...blog, date: new Date(blog.date) }, path: blog.date },
   });
 });
 
