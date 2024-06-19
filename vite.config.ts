@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from "node:url";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import PurgeIcons from "vite-plugin-purge-icons";
 import mdx from "@mdx-js/rollup";
 
 const srcPath = fileURLToPath(new URL("./src", import.meta.url));
@@ -14,7 +13,6 @@ export default defineConfig({
     mdx({
       jsxImportSource: "vue",
     }),
-    PurgeIcons(),
   ],
   resolve: {
     alias: {

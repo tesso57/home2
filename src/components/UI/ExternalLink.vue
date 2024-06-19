@@ -1,9 +1,14 @@
 <script setup lang="ts">
+interface Props {
+  href: string;
+}
+defineProps<Props>();
+
 import Icon from "./Icon.vue";
 </script>
 
 <template>
-  <a :class="$style.container">
+  <a :href="href" :class="$style.container">
     <slot />
     <Icon name="mdi:open-in-new" :size="16" />
   </a>

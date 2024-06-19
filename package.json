@@ -1,5 +1,6 @@
 {
   "name": "home2",
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -10,8 +11,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@iconify/iconify": "^3.0.0",
-    "@purge-icons/core": "^0.10.0",
     "@rollup/plugin-babel": "^6.0.4",
     "eslint": "^8.57.0",
     "pinia": "^2.1.7",
@@ -24,7 +23,9 @@
     ]
   },
   "devDependencies": {
-    "@iconify/json": "^2.2.220",
+    "iconify-icon": "^2.1.0",
+    "@iconify-icons/bx": "^1.2.6",
+    "@iconify-icons/dashicons": "^1.2.4",
     "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
     "@mdx-js/vue": "^3.0.1",
