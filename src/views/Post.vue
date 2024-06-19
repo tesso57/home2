@@ -2,7 +2,7 @@
 import PageContainer from "@/components/Layout/PageContainer.vue";
 import BlogItem from "@/components/Blog/BlogItem.vue";
 import type { Blog } from "@/lib/blog";
-import { defineProps, ref } from "vue";
+import { ref } from "vue";
 
 interface Props {
   blog: Blog;
