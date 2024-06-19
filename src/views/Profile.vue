@@ -18,8 +18,15 @@ import Link from "@/components/Profile/Link.vue";
         <template v-slot:header>
           <h2>Belonging</h2>
         </template>
-        <ExternalLink  v-for="(belonging, id) in Profile.belongings" :key="id" :href="belonging.link">
-          <p :class="$style.link">{{ belonging.name }} ({{ format(new Date(belonging.since)) }} ~)</p>
+        <ExternalLink
+          v-for="(belonging, id) in Profile.belongings"
+          :key="id"
+          :href="belonging.link"
+        >
+          <p :class="$style.link">
+            {{ belonging.name }} ({{ format(new Date(belonging.since)) }} ~
+            {{ belonging.until && format(new Date(belonging.until)) }})
+          </p>
         </ExternalLink>
       </SectionContainer>
       <SectionContainer>
@@ -46,8 +53,15 @@ import Link from "@/components/Profile/Link.vue";
         <template v-slot:header>
           <h2>Links</h2>
         </template>
-        <Link v-for="(link, id) in Profile.links" :key="id" :icon="link.icon" :name="link.name" :href="link.url"
-          :type="link.type" :color="link.color" />
+        <Link
+          v-for="(link, id) in Profile.links"
+          :key="id"
+          :icon="link.icon"
+          :name="link.name"
+          :href="link.url"
+          :type="link.type"
+          :color="link.color"
+        />
       </SectionContainer>
     </div>
   </PageContainer>
