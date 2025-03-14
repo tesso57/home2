@@ -2,19 +2,19 @@
 import { computed } from "vue";
 
 const props = defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  size: {
-    type: Number,
-    default: 24,
-  },
+	name: {
+		type: String,
+		required: true,
+	},
+	size: {
+		type: Number,
+		default: 24,
+	},
 });
 
 const styled = computed(() => ({
-  height: `${props.size}px`,
-  width: `${props.size}px`,
+	height: `${props.size}px`,
+	width: `${props.size}px`,
 }));
 </script>
 

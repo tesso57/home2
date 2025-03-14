@@ -2,18 +2,18 @@
 import Icon from "@/components/UI/Icon.vue";
 import { computed } from "vue";
 
-const props = withDefaults(defineProps<{
-    modelValue: boolean;
-}>(), {
-});
+const props = withDefaults(
+	defineProps<{
+		modelValue: boolean;
+	}>(),
+	{},
+);
 
-const emit = defineEmits<{
-    (e: 'update:modelValue', value: boolean): void
-}>()
+const emit = defineEmits<(e: "update:modelValue", value: boolean) => void>();
 const value = computed({
-    get: () => props.modelValue,
-    set: v => emit('update:modelValue', v)
-})
+	get: () => props.modelValue,
+	set: (v) => emit("update:modelValue", v),
+});
 </script>
 
 <template>

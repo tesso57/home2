@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Teleport } from "vue";
 
-const emit = defineEmits<{ (e: "close"): void }>();
+const emit = defineEmits<(e: "close") => void>();
 const close = () => emit("close");
 </script>
 

@@ -2,7 +2,7 @@
 import type { Blog } from "@/lib/blog";
 import { format } from "@/lib/date";
 interface Props {
-  blog: Blog;
+	blog: Blog;
 }
 
 const props = defineProps<Props>();

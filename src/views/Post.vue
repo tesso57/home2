@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import PageContainer from "@/components/Layout/PageContainer.vue";
 import BlogItem from "@/components/Blog/BlogItem.vue";
+import PageContainer from "@/components/Layout/PageContainer.vue";
 import type { Blog } from "@/lib/blog";
 import { ref } from "vue";
 
 interface Props {
-  blog: Blog;
-  path: string;
+	blog: Blog;
+	path: string;
 }
 const props = defineProps<Props>();
 
 const importBody = async () => {
-  console.log(`@/assets/posts/${props.path}mdx`);
-  const { default: Body } = await import(`@/assets/posts/${props.path}.mdx`);
-  body.value = Body;
-  return Body;
+	console.log(`@/assets/posts/${props.path}mdx`);
+	const { default: Body } = await import(`@/assets/posts/${props.path}.mdx`);
+	body.value = Body;
+	return Body;
 };
 
 const body = ref(null);

@@ -1,32 +1,32 @@
 {
-    "compilerOptions": {
-      "target": "esnext",
-      "module": "esnext",
-      "strict": true,
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "isolatedModules": true,
-      "allowSyntheticDefaultImports": true,
-      "noFallthroughCasesInSwitch": true,
-      "noPropertyAccessFromIndexSignature": true,
-      "noUncheckedIndexedAccess": true,
-      "verbatimModuleSyntax": true,
-      "jsx": "preserve",
-      "baseUrl": ".",
-      "lib": ["esnext", "dom"],
-      "skipLibCheck": true,
-      "noEmit": true,
-      "incremental": true,
-      "tsBuildInfoFile": "./node_modules/.tsbuildinfo",
-      "types": ["vite/client", "@types/mdx"],
-      "paths": {
-        "@/*": ["src/*"]
-      }
-    },
-    "vueCompilerOptions": {
-      "experimentalResolveStyleCssClasses": "always",
-      "strictTemplates": true,
-      "dataAttributes": ["data-*"]
-    }
-  }
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"strict": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
+		"noFallthroughCasesInSwitch": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"verbatimModuleSyntax": true,
+		"jsx": "preserve",
+		"baseUrl": ".",
+		"lib": ["esnext", "dom"],
+		"skipLibCheck": true,
+		"noEmit": true,
+		"incremental": true,
+		"tsBuildInfoFile": "./node_modules/.tsbuildinfo",
+		"types": ["vite/client", "@types/mdx"],
+		"paths": {
+			"@/*": ["src/*"]
+		}
+	},
+	"vueCompilerOptions": {
+		"experimentalResolveStyleCssClasses": "always",
+		"strictTemplates": true,
+		"dataAttributes": ["data-*"]
+	}
+}

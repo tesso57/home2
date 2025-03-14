@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { type Work } from "@/lib/work";
+import type { Work } from "@/lib/work";
 import WorkItem from "./WorkItem.vue";
 
 interface Props {
-  works: Work[];
+	works: Work[];
 }
 
 defineProps<Props>();

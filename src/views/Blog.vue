@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import PageContainer from "@/components/Layout/PageContainer.vue";
 import BlogCard from "@/components/Blog/BlogCard.vue";
+import PageContainer from "@/components/Layout/PageContainer.vue";
 import { blogs } from "@/lib/blog";
 </script>
 

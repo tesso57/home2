@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  href: string;
+	href: string;
 }
 defineProps<Props>();
 

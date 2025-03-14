@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import NoImage from "@/assets/Image.png";
 import { formatDuration } from "@/lib/date";
 import type { Work } from "@/lib/work";
 import { computed, ref } from "vue";
 import WorkModal from "./WorkModal.vue";
-import NoImage from "@/assets/Image.png";
 
 interface Props {
-  work: Work;
+	work: Work;
 }
 
 const props = defineProps<Props>();
@@ -14,22 +14,21 @@ const props = defineProps<Props>();
 const duration = formatDuration(props.work.duration);
 
 const onClick = () => {
-  isOpen.value = true;
+	isOpen.value = true;
 };
 const handleClose = () => {
-  isOpen.value = false;
+	isOpen.value = false;
 };
 const isOpen = ref(false);
 
 const Urls = import.meta.glob<string>("../../assets/*.(svg|png|gif)", {
-  eager: true,
-  import: "default",
+	eager: true,
+	import: "default",
 });
 
 const imageUrl = computed(
-  () => Urls[`../../assets/${props.work.imageUrl}`] ?? NoImage
+	() => Urls[`../../assets/${props.work.imageUrl}`] ?? NoImage,
 );
-
 </script>
 
 <template>

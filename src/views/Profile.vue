@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import Profile from "@/assets/data/profile.json";
+import Link from "@/components/Profile/Link.vue";
 import { format } from "@/lib/date";
 import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
-import Profile from "@/assets/data/profile.json";
-import Link from "@/components/Profile/Link.vue";
 </script>
 
 <template>

@@ -1,16 +1,16 @@
-import { ref, type Ref } from "vue";
+import { type Ref, ref } from "vue";
 
 const useOpener = (): {
-  isOpen: Ref<boolean>;
-  toggle: () => void;
+	isOpen: Ref<boolean>;
+	toggle: () => void;
 } => {
-  const isOpen = ref(false);
+	const isOpen = ref(false);
 
-  const toggle = () => {
-    isOpen.value = !isOpen.value;
-  };
+	const toggle = () => {
+		isOpen.value = !isOpen.value;
+	};
 
-  return { isOpen, toggle };
+	return { isOpen, toggle };
 };
 
 export default useOpener;

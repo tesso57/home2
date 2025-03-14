@@ -4,22 +4,22 @@ import ExternalLink from "../UI/ExternalLink.vue";
 import ModalTemplate from "../UI/modalTemplate.vue";
 
 interface Props {
-  title: string;
-  description: string;
-  tags: string[];
-  link: string;
-  imageUrl: string;
-  duration: {
-    since: Date;
-    until?: Date;
-  };
+	title: string;
+	description: string;
+	tags: string[];
+	link: string;
+	imageUrl: string;
+	duration: {
+		since: Date;
+		until?: Date;
+	};
 }
 
 const props = defineProps<Props>();
 
 const duration = formatDuration(props.duration);
 
-const emit = defineEmits<{ (e: "close"): void }>();
+const emit = defineEmits<(e: "close") => void>();
 const close = () => emit("close");
 </script>
 

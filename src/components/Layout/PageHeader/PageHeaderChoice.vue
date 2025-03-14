@@ -4,22 +4,21 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 
 const props = defineProps<{
-  icon: string;
-  paragraph: string;
-  to: string;
+	icon: string;
+	paragraph: string;
+	to: string;
 }>();
 
 const currentRoute = useRoute();
 
 const isActive = computed(() => {
-  if (props.to === "/") {
-    return currentRoute.path === "/";
-  } else {
-    return (
-      currentRoute.path === props.to ||
-      currentRoute.path.startsWith(`${props.to}/`)
-    );
-  }
+	if (props.to === "/") {
+		return currentRoute.path === "/";
+	}
+	return (
+		currentRoute.path === props.to ||
+		currentRoute.path.startsWith(`${props.to}/`)
+	);
 });
 </script>
 

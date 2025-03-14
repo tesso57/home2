@@ -1,25 +1,25 @@
 <script lang="ts" setup>
-import Icon from "../UI/Icon.vue";
-import ExternalLink from "../UI/ExternalLink.vue";
-import { computed } from "vue";
 import NoImage from "@/assets/Image.png";
+import { computed } from "vue";
+import ExternalLink from "../UI/ExternalLink.vue";
+import Icon from "../UI/Icon.vue";
 
 interface Props {
-  icon: string;
-  name: string;
-  href: string;
-  type: string;
-  color: string;
+	icon: string;
+	name: string;
+	href: string;
+	type: string;
+	color: string;
 }
 
 const props = defineProps<Props>();
 const isImg = props.type === "img";
 const styled = {
-  color: props.color,
+	color: props.color,
 };
 const Urls = import.meta.glob<string>("../../assets/*.svg", {
-  eager: true,
-  import: "default",
+	eager: true,
+	import: "default",
 });
 const src = computed(() => Urls[`../../assets/${props.icon}`] ?? NoImage);
 </script>

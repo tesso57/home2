@@ -1,66 +1,87 @@
 {
-  "name": "tesso",
-  "id": "@tesso57",
-  "belongings": [
-    {
-      "name": "東京工業大学情報理工学院 数理計算科学系",
-      "link": "https://educ.titech.ac.jp/is/",
-      "since": "2020-4-1",
-      "until": "2024-3-31"
-    },
-    {
-      "name": "東京工業大学情報理工学院 数理計算科学系 修士課程",
-      "link": "https://educ.titech.ac.jp/is/",
-      "since": "2024-4-1"
-    },
-    {
-      "name": "プログラミング教室 N Code Labo",
-      "link": "https://n-codelabo.jp/",
-      "since": "2020-10-1",
-      "until": "2024-3-31"
-    },
-    {
-      "name": "東京工業大学デジタル同好会traP",
-      "link": "https://trap.jp",
-      "since": "2020-5-12"
-    },
-    {
-      "name": "株式会社ナンバーナイン(エンジニアインターン)",
-      "link": "https://corp.no9.co.jp/",
-      "since": "2022-11-14"
-    }
-  ],
-  "about": "暗号とWebとゲームが好きです。大学では、数学とコンピュータの勉強してます。研究室では、準同型暗号の安全性を研究しています。サークルでは、フロントエンドとゲーム制作してます。インターン先では、バックエンドエンジニアをしています。",
-  "skills": ["Go", "C#", "C++", "Javascript", "Unity", "Vue.js"],
-  "likes": ["プログラミング", "FPS", "暗号理論"],
-  "links": [
-    {
-      "name": "Github",
-      "type": "icon",
-      "icon": "mdi:github",
-      "url": "https://github.com/tesso57",
-      "color": "#171515"
-    },
-    {
-      "name": "Note",
-      "type": "img",
-      "icon": "note.svg",
-      "url": "https://note.com/tesso57",
-      "color": "#41c9b4"
-    },
-    {
-      "name": "Twitter",
-      "type": "icon",
-      "icon": "mdi:twitter",
-      "url": "https://twitter.com/tesso57",
-      "color": "#1da1f2"
-    },
-    {
-      "name": "mail@tesso.dev",
-      "type": "icon",
-      "icon": "mdi:email",
-      "url": "mailto:mail@tesso.dev",
-      "color": "#7ace8a"
-    }
-  ]
+	"name": "tesso",
+	"id": "@tesso57",
+	"belongings": [
+		{
+			"name": "東京工業大学情報理工学院 数理計算科学系",
+			"link": "https://educ.titech.ac.jp/is/",
+			"since": "2020-4-1",
+			"until": "2024-3-31"
+		},
+		{
+			"name": "東京工業大学情報理工学院 数理計算科学系 修士課程",
+			"link": "https://educ.titech.ac.jp/is/",
+			"since": "2024-4-1"
+		},
+		{
+			"name": "プログラミング教室 N Code Labo",
+			"link": "https://n-codelabo.jp/",
+			"since": "2020-10-1",
+			"until": "2024-3-31"
+		},
+		{
+			"name": "東京工業大学デジタル同好会traP",
+			"link": "https://trap.jp",
+			"since": "2020-5-12"
+		},
+		{
+			"name": "株式会社ナンバーナイン(エンジニアインターン)",
+			"link": "https://corp.no9.co.jp/",
+			"since": "2022-11-14"
+		}
+	],
+	"about": "暗号とWebとゲームが好きです。大学では、数学とコンピュータの勉強してます。研究室では、準同型暗号に関する安全性を研究しています。サークルでは、フロントエンドとゲーム制作してます。インターン先では、バックエンドエンジニアをしています。",
+	"skills": ["Go", "C#", "C++", "Javascript", "Unity", "Vue.js"],
+	"likes": ["プログラミング", "FPS(Valorant, Overwatch)", "暗号理論"],
+	"links": [
+		{
+			"name": "Github",
+			"type": "icon",
+			"icon": "mdi:github",
+			"url": "https://github.com/tesso57",
+			"color": "#171515"
+		},
+		{
+			"name": "Zenn",
+			"type": "icon",
+			"icon": "simple-icons:zenn",
+			"url": "https://zenn.dev/tesso",
+			"color": "#3EA8FF"
+		},
+		{
+			"name": "X",
+			"type": "icon",
+			"icon": "line-md:twitter-x",
+			"url": "https://twitter.com/tesso57",
+			"color": "#000000"
+		},
+		{
+			"name": "しずかなインターネット",
+			"type": "img",
+			"icon": "sizu.svg",
+			"url": "https://sizu.me/tesso",
+			"color": "#000000"
+		},
+		{
+			"name": "Speaker Deck",
+			"type": "icon",
+			"icon": "fa6-brands:speaker-deck",
+			"url": "https://speakerdeck.com/tesso57",
+			"color": "#000000"
+		},
+		{
+			"name": "Note",
+			"type": "img",
+			"icon": "note.svg",
+			"url": "https://note.com/tesso57",
+			"color": "#41c9b4"
+		},
+		{
+			"name": "mail@tesso.dev",
+			"type": "icon",
+			"icon": "mdi:email",
+			"url": "mailto:mail@tesso.dev",
+			"color": "#7ace8a"
+		}
+	]
 }
