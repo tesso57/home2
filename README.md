@@ -39,7 +39,9 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint with [Biome](https://biomejs.dev/)
+
+Use Biome to lint and format the project:
 
 ```sh
 npm run lint
