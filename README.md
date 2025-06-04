@@ -42,7 +42,6 @@ npm run build
 ### Lint with [Biome](https://biomejs.dev/)
 
 Use Biome to lint and format the project:
-
 ```sh
 npm run lint
 ```
