@@ -11,7 +11,6 @@ const props = defineProps<Props>();
 const date = format(props.blog.date);
 
 const path = `/blog/${props.blog.date.toISOString().slice(0, 10)}`;
-console.log(path);
 </script>
 
 <template>
