@@ -7,7 +7,7 @@ const isMobile = ref(window.innerWidth < 768);
 
 const isOpen = ref(false);
 
-const resizeHandler = () => {
+const resizeHandler = (event: Event) => {
 	isMobile.value = window.innerWidth < 768;
 };
 
