@@ -7,16 +7,16 @@ const isMobile = ref(window.innerWidth < 768);
 
 const isOpen = ref(false);
 
+const resizeHandler = (event: Event) => {
+	isMobile.value = window.innerWidth < 768;
+};
+
 onMounted(() => {
-	window.addEventListener("resize", () => {
-		isMobile.value = window.innerWidth < 768;
-	});
+	window.addEventListener("resize", resizeHandler);
 });
 
 onUnmounted(() => {
-	window.removeEventListener("resize", () => {
-		isMobile.value = window.innerWidth < 768;
-	});
+	window.removeEventListener("resize", resizeHandler);
 });
 
 async function enter(el: Element, done: () => void) {
