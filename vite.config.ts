@@ -17,6 +17,9 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"@": srcPath,
+			"@iconify/vue": fileURLToPath(
+				new URL("./src/lib/iconify-vue.ts", import.meta.url),
+			),
 		},
 	},
 	css: {
