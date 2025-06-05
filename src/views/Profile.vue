@@ -91,6 +91,7 @@ const starCount = (level: string): number => {
 </template>
 
 <style lang="scss" module>
+@use "sass:color";
 .container {
   display: flex;
   flex-direction: column;
