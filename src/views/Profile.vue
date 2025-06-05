@@ -2,11 +2,11 @@
 import Profile from "@/assets/data/profile.json";
 import Link from "@/components/Profile/Link.vue";
 import { format } from "@/lib/date";
+import { computed } from "vue";
 import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
 import Icon from "../components/UI/Icon.vue";
-import { computed } from "vue";
 
 const starCount = (level: string): number => {
   switch (level) {
@@ -21,14 +21,16 @@ const starCount = (level: string): number => {
   }
 };
 
-const levelRank = {
+const levelRank: Record<string, number> = {
   advanced: 3,
   intermediate: 2,
   beginner: 1,
 };
 
 const sortedSkills = computed(() =>
-  [...Profile.skills].sort((a, b) => levelRank[b.level] - levelRank[a.level])
+  [...(Profile.skills as { name: string; level: string }[])].sort(
+    (a, b) => (levelRank[b.level] ?? 0) - (levelRank[a.level] ?? 0)
+  )
 );
 </script>
 
