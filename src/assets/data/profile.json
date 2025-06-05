@@ -31,7 +31,36 @@
 		}
 	],
 	"about": "暗号とWebとゲームが好きです。大学では、数学とコンピュータの勉強してます。研究室では、準同型暗号に関する安全性を研究しています。サークルでは、フロントエンドとゲーム制作してます。インターン先では、バックエンドエンジニアをしています。",
-	"skills": ["Go", "C#", "C++", "Javascript", "Unity", "Vue.js"],
+	"skills": [
+                {
+                        "name": "Go",
+                        "level": "advanced"
+                },
+                {
+                        "name": "C#",
+                        "level": "beginner"
+                },
+                {
+                        "name": "C++",
+                        "level": "intermediate"
+                },
+                {
+                        "name": "Javascript",
+                        "level": "intermediate"
+                },
+                {
+                        "name": "Unity",
+                        "level": "beginner"
+                },
+                {
+                        "name": "Vue.js",
+                        "level": "beginner"
+                },
+                {
+                        "name": "Next.js",
+                        "level": "beginner"
+                }
+        ],
 	"likes": ["プログラミング", "FPS(Valorant, Overwatch)", "暗号理論"],
 	"links": [
 		{
