@@ -2,14 +2,14 @@
 	"name": "tesso",
 	"id": "@tesso57",
 	"belongings": [
-		{
-			"name": "東京科学大情報理工学院 数理計算科学系",
+                {
+                        "name": "東京科学大学情報理工学院 数理計算科学系",
 			"link": "https://educ.titech.ac.jp/is/",
 			"since": "2020-4-1",
 			"until": "2024-3-31"
 		},
-		{
-			"name": "東京科学大情報理工学院 数理計算科学系 修士課程",
+                {
+                        "name": "東京科学大学情報理工学院 数理計算科学系 修士課程",
 			"link": "https://educ.titech.ac.jp/is/",
 			"since": "2024-4-1"
 		},
@@ -19,8 +19,8 @@
 			"since": "2020-10-1",
 			"until": "2024-3-31"
 		},
-		{
-			"name": "東京科学大デジタル同好会traP",
+                {
+                        "name": "東京科学大学デジタル同好会traP",
 			"link": "https://trap.jp",
 			"since": "2020-5-12"
 		},
