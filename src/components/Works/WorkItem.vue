@@ -21,7 +21,7 @@ const handleClose = () => {
 };
 const isOpen = ref(false);
 
-const Urls = import.meta.glob<string>("../../assets/*.(svg|png|gif)", {
+const Urls = import.meta.glob<string>("../../assets/*.{svg,png,gif}", {
 	eager: true,
 	import: "default",
 });
