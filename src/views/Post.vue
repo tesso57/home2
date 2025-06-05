@@ -11,9 +11,9 @@ interface Props {
 const props = defineProps<Props>();
 
 const importBody = async () => {
-        const { default: Body } = await import(`@/assets/posts/${props.path}.mdx`);
-        body.value = Body;
-        return Body;
+	const { default: Body } = await import(`@/assets/posts/${props.path}.mdx`);
+	body.value = Body;
+	return Body;
 };
 
 const body = ref(null);
