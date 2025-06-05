@@ -125,6 +125,6 @@ const starCount = (level: string): number => {
 }
 
 .faded {
-  color: lighten($color-highlight, 40%);
+  color: color.adjust($color-highlight, $lightness: 40%);
 }
 </style>
