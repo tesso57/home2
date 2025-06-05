@@ -21,8 +21,7 @@
 		"tsBuildInfoFile": "./node_modules/.tsbuildinfo",
 		"types": ["vite/client", "@types/mdx"],
 		"paths": {
-			"@/*": ["src/*"],
-			"@iconify/vue": ["src/lib/iconify-vue"]
+			"@/*": ["src/*"]
 		}
 	},
 	"vueCompilerOptions": {

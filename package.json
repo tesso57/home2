@@ -22,7 +22,6 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
 		"@iconify/vue": "^4.1.1",
-		"iconify-icon": "^2.3.0",
 		"@mdx-js/mdx": "^3.1.0",
 		"@mdx-js/rollup": "^3.1.0",
 		"@mdx-js/vue": "^3.1.0",
