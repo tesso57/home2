@@ -13,8 +13,8 @@ const props = defineProps({
 });
 
 const styled = computed(() => ({
-        height: `${props.size}px`,
-        width: `${props.size}px`,
+	height: `${props.size}px`,
+	width: `${props.size}px`,
 }));
 </script>
 

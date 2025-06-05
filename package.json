@@ -16,9 +16,9 @@
 		"ress": "^5.0.2",
 		"vue-router": "^4.5.0"
 	},
-        "lint-staged": {
-                "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": ["biome check --apply"]
-        },
+	"lint-staged": {
+		"*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": ["biome check --apply"]
+	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
 		"@iconify-icons/bx": "^1.2.6",

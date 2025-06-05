@@ -9,28 +9,28 @@ import ExternalLink from "../components/UI/ExternalLink.vue";
 import Icon from "../components/UI/Icon.vue";
 
 const starCount = (level: string): number => {
-  switch (level) {
-    case "advanced":
-      return 5;
-    case "intermediate":
-      return 3;
-    case "beginner":
-      return 1;
-    default:
-      return 0;
-  }
+	switch (level) {
+		case "advanced":
+			return 5;
+		case "intermediate":
+			return 3;
+		case "beginner":
+			return 1;
+		default:
+			return 0;
+	}
 };
 
 const levelRank: Record<string, number> = {
-  advanced: 3,
-  intermediate: 2,
-  beginner: 1,
+	advanced: 3,
+	intermediate: 2,
+	beginner: 1,
 };
 
 const sortedSkills = computed(() =>
-  [...(Profile.skills as { name: string; level: string }[])].sort(
-    (a, b) => (levelRank[b.level] ?? 0) - (levelRank[a.level] ?? 0)
-  )
+	[...(Profile.skills as { name: string; level: string }[])].sort(
+		(a, b) => (levelRank[b.level] ?? 0) - (levelRank[a.level] ?? 0),
+	),
 );
 </script>
 
