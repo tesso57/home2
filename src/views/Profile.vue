@@ -2,9 +2,36 @@
 import Profile from "@/assets/data/profile.json";
 import Link from "@/components/Profile/Link.vue";
 import { format } from "@/lib/date";
+import { computed } from "vue";
 import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
+import Icon from "../components/UI/Icon.vue";
+
+const starCount = (level: string): number => {
+  switch (level) {
+    case "advanced":
+      return 5;
+    case "intermediate":
+      return 3;
+    case "beginner":
+      return 1;
+    default:
+      return 0;
+  }
+};
+
+const levelRank: Record<string, number> = {
+  advanced: 3,
+  intermediate: 2,
+  beginner: 1,
+};
+
+const sortedSkills = computed(() =>
+  [...(Profile.skills as { name: string; level: string }[])].sort(
+    (a, b) => (levelRank[b.level] ?? 0) - (levelRank[a.level] ?? 0)
+  )
+);
 </script>
 
 <template>
@@ -41,7 +68,16 @@ import ExternalLink from "../components/UI/ExternalLink.vue";
         <template v-slot:header>
           <h2>Skills</h2>
         </template>
-        <p v-for="(skill, id) in Profile.skills" :key="id">{{ skill }}</p>
+        <p v-for="(skill, id) in sortedSkills" :key="id">
+          {{ skill.name }}
+          <Icon
+            v-for="n in 5"
+            :key="n"
+            name="mdi:star"
+            :size="16"
+            :class="[$style.star, n > starCount(skill.level) && $style.faded]"
+          />
+        </p>
       </SectionContainer>
       <SectionContainer>
         <template v-slot:header>
@@ -68,6 +104,7 @@ import ExternalLink from "../components/UI/ExternalLink.vue";
 </template>
 
 <style lang="scss" module>
+@use "sass:color";
 .container {
   display: flex;
   flex-direction: column;
@@ -95,5 +132,13 @@ import ExternalLink from "../components/UI/ExternalLink.vue";
 
 .link {
   color: $color-secondary;
+}
+
+.star {
+  color: $color-highlight;
+}
+
+.faded {
+  color: color.adjust($color-highlight, $lightness: 30%);
 }
 </style>

@@ -2,14 +2,14 @@
 	"name": "tesso",
 	"id": "@tesso57",
 	"belongings": [
-		{
-			"name": "東京工業大学情報理工学院 数理計算科学系",
+                {
+                        "name": "東京科学大学情報理工学院 数理計算科学系",
 			"link": "https://educ.titech.ac.jp/is/",
 			"since": "2020-4-1",
 			"until": "2024-3-31"
 		},
-		{
-			"name": "東京工業大学情報理工学院 数理計算科学系 修士課程",
+                {
+                        "name": "東京科学大学情報理工学院 数理計算科学系 修士課程",
 			"link": "https://educ.titech.ac.jp/is/",
 			"since": "2024-4-1"
 		},
@@ -19,8 +19,8 @@
 			"since": "2020-10-1",
 			"until": "2024-3-31"
 		},
-		{
-			"name": "東京工業大学デジタル同好会traP",
+                {
+                        "name": "東京科学大学デジタル同好会traP",
 			"link": "https://trap.jp",
 			"since": "2020-5-12"
 		},
@@ -31,7 +31,36 @@
 		}
 	],
 	"about": "暗号とWebとゲームが好きです。大学では、数学とコンピュータの勉強してます。研究室では、準同型暗号に関する安全性を研究しています。サークルでは、フロントエンドとゲーム制作してます。インターン先では、バックエンドエンジニアをしています。",
-	"skills": ["Go", "C#", "C++", "Javascript", "Unity", "Vue.js"],
+	"skills": [
+                {
+                        "name": "Go",
+                        "level": "advanced"
+                },
+                {
+                        "name": "C#",
+                        "level": "beginner"
+                },
+                {
+                        "name": "C++",
+                        "level": "intermediate"
+                },
+                {
+                        "name": "Javascript",
+                        "level": "intermediate"
+                },
+                {
+                        "name": "Unity",
+                        "level": "beginner"
+                },
+                {
+                        "name": "Vue.js",
+                        "level": "intermediate"
+                },
+                {
+                        "name": "Next.js",
+                        "level": "beginner"
+                }
+        ],
 	"likes": ["プログラミング", "FPS(Valorant, Overwatch)", "暗号理論"],
 	"links": [
 		{
