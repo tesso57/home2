@@ -6,6 +6,7 @@ import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
 import Icon from "../components/UI/Icon.vue";
+import { computed } from "vue";
 
 const starCount = (level: string): number => {
   switch (level) {
@@ -19,6 +20,16 @@ const starCount = (level: string): number => {
       return 0;
   }
 };
+
+const levelRank = {
+  advanced: 3,
+  intermediate: 2,
+  beginner: 1,
+};
+
+const sortedSkills = computed(() =>
+  [...Profile.skills].sort((a, b) => levelRank[b.level] - levelRank[a.level])
+);
 </script>
 
 <template>
@@ -55,7 +66,7 @@ const starCount = (level: string): number => {
         <template v-slot:header>
           <h2>Skills</h2>
         </template>
-        <p v-for="(skill, id) in Profile.skills" :key="id">
+        <p v-for="(skill, id) in sortedSkills" :key="id">
           {{ skill.name }}
           <Icon
             v-for="n in 5"
