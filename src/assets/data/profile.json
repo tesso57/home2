@@ -39,31 +39,35 @@
 	"skills": [
                 {
                         "name": "Go",
-                        "level": "advanced"
+                        "level": 4
                 },
                 {
                         "name": "C#",
-                        "level": "beginner"
+                        "level": 1
                 },
                 {
                         "name": "C++",
-                        "level": "intermediate"
+                        "level": 3
                 },
                 {
                         "name": "Javascript",
-                        "level": "intermediate"
+                        "level": 3
                 },
                 {
                         "name": "Unity",
-                        "level": "beginner"
+                        "level": 1
                 },
                 {
                         "name": "Vue.js",
-                        "level": "intermediate"
+                        "level": 1
                 },
                 {
                         "name": "Next.js",
-                        "level": "beginner"
+                        "level": 2
+                },
+                {
+                        "name": "AWS",
+                        "level": 1
                 }
         ],
 	"likes": ["プログラミング", "FPS(Valorant, Overwatch)", "暗号理論"],
