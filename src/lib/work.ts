@@ -21,7 +21,8 @@ const formatWorks = (): Work[] =>
 			imageUrl,
 			duration: {
 				since: new Date(duration.since),
-				until: new Date(duration?.until ?? Date.now()),
+				// keep `undefined` when `until` is not specified
+				until: duration.until ? new Date(duration.until) : undefined,
 			},
 		};
 	});

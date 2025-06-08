@@ -5,7 +5,15 @@ export type Duration = {
 export const format = (date?: Date) =>
 	date ? date.toISOString().slice(0, 10).replace(/-/g, "/") : "";
 
-export function formatDuration(duration: Duration): string {
+export function formatDuration(
+	duration: Duration,
+	showTrailingTilde = false,
+): string {
 	const { since, until } = duration;
-	return `${format(since)} ~ ${format(until)}`;
+	const sinceText = format(since);
+	const untilText = format(until);
+	if (until) {
+		return `${sinceText} ~ ${untilText}`;
+	}
+	return showTrailingTilde ? `${sinceText} ~` : sinceText;
 }
