@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Profile from "@/assets/data/profile.json";
 import Link from "@/components/Profile/Link.vue";
-import { format } from "@/lib/date";
+import { format, formatDuration } from "@/lib/date";
 import { computed } from "vue";
 import PageContainer from "../components/Layout/PageContainer.vue";
 import SectionContainer from "../components/Layout/SectionContainer.vue";
@@ -51,8 +51,19 @@ const sortedSkills = computed(() =>
           :href="belonging.link"
         >
           <p :class="$style.link">
-            {{ belonging.name }} ({{ format(new Date(belonging.since)) }} ~
-            {{ belonging.until && format(new Date(belonging.until)) }})
+            {{ belonging.name }}
+            (
+            {{
+              formatDuration(
+                {
+                  since: new Date(belonging.since),
+                  until: belonging.until
+                    ? new Date(belonging.until)
+                    : undefined,
+                },
+                true,
+              )
+            }})
           </p>
         </ExternalLink>
       </SectionContainer>
