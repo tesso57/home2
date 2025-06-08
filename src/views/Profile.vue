@@ -8,28 +8,9 @@ import SectionContainer from "../components/Layout/SectionContainer.vue";
 import ExternalLink from "../components/UI/ExternalLink.vue";
 import Icon from "../components/UI/Icon.vue";
 
-const starCount = (level: string): number => {
-	switch (level) {
-		case "advanced":
-			return 5;
-		case "intermediate":
-			return 3;
-		case "beginner":
-			return 1;
-		default:
-			return 0;
-	}
-};
-
-const levelRank: Record<string, number> = {
-	advanced: 3,
-	intermediate: 2,
-	beginner: 1,
-};
-
 const sortedSkills = computed(() =>
-	[...(Profile.skills as { name: string; level: string }[])].sort(
-		(a, b) => (levelRank[b.level] ?? 0) - (levelRank[a.level] ?? 0),
+	[...(Profile.skills as { name: string; level: number }[])].sort(
+		(a, b) => b.level - a.level,
 	),
 );
 </script>
@@ -75,7 +56,7 @@ const sortedSkills = computed(() =>
             :key="n"
             name="mdi:star"
             :size="16"
-            :class="[$style.star, n > starCount(skill.level) && $style.faded]"
+            :class="[$style.star, n > skill.level && $style.faded]"
           />
         </p>
       </SectionContainer>
