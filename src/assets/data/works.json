@@ -97,5 +97,16 @@
                         "since": "2024/9/7",
                         "until": null
                 }
+        },
+        {
+                "title": "locus",
+               "description": "Gitリポジトリに合わせてディレクトリを分割して、Markdownでタスク管理ができるローカル版GitHub Issues的CLIです。CIも整えてnpmやjsrからインストールできるようにしました。よかったら使ってみてください！",
+                "tags": ["GitHub"],
+                "link": "https://github.com/tesso57/locus",
+                "imageUrl": "github.svg",
+                "duration": {
+                        "since": "2025/07/17",
+                        "until": null
+                }
         }
 	]
