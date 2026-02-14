@@ -2,31 +2,30 @@
 import BlogItem from "@/components/Blog/BlogItem.vue";
 import PageContainer from "@/components/Layout/PageContainer.vue";
 import type { Blog } from "@/lib/blog";
-import { ref } from "vue";
+import type { Component } from "vue";
 
 interface Props {
 	blog: Blog;
 	path: string;
 }
+
 const props = defineProps<Props>();
 
-const importBody = async () => {
-	const { default: Body } = await import(`@/assets/posts/${props.path}.mdx`);
-	body.value = Body;
-	return Body;
-};
+const modules = import.meta.glob("@/assets/posts/*.mdx", {
+	eager: true,
+	import: "default",
+}) as Record<string, Component>;
 
-const body = ref(null);
-
-importBody();
+const body = modules[`/src/assets/posts/${props.path}.mdx`];
 </script>
 
 <template>
   <PageContainer>
     <BlogItem :blog="blog">
-      <div :class="$style.post">
+      <div v-if="body" :class="$style.post">
         <component :is="body" />
       </div>
+      <p v-else :class="$style.error">記事の読み込みに失敗しました。</p>
     </BlogItem>
   </PageContainer>
 </template>
@@ -43,5 +42,10 @@ importBody();
     font-size: 1.25rem;
     margin: 3rem 0 1rem;
   }
+}
+
+.error {
+  margin-top: 1rem;
+  color: $color-boundary-black;
 }
 </style>
