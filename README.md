@@ -1,14 +1,14 @@
 # home2
 
 This repository contains the source for **tesso.dev**, a small portfolio site
-built with [Vue&nbsp;3](https://vuejs.org/) and [Vite](https://vitejs.dev/).
+built with [React](https://react.dev/) and [Vite](https://vitejs.dev/).
 The site displays a profile, works history and a blog powered by MDX files.
 Data such as profile information and posts are stored under `src/assets` and
-converted to pages through Vue Router.
+converted to pages through React Router.
 
 ## Features
 
-- Vue 3 single-page application
+- React single-page application
 - Blog powered by MDX
 - Router-based navigation
 - Hosted on Vercel
@@ -17,10 +17,6 @@ converted to pages through Vue Router.
 
 - Node.js 20 or newer
 - npm 9 or newer
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
 ## Customize configuration
 
@@ -32,14 +28,26 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 ├─ public/            # Static assets
 ├─ src/
 │  ├─ assets/         # Images, JSON data and MDX posts
-│  ├─ components/     # Reusable Vue components
+│  ├─ components/     # Reusable React components
 │  ├─ views/          # Page components used by the router
-│  ├─ router/         # Route definitions
 │  └─ lib/            # Utility functions
 ```
 
-Blog entries live in `src/assets/posts` and are listed in
-`src/assets/data/blogs.json`. Update these files to add new posts.
+Blog entries live in `src/assets/posts`. Add a new `.mdx` file and include
+frontmatter at the top:
+
+```mdx
+---
+slug: your-post-slug
+title: 記事タイトル
+date: 2026-02-15
+tags:
+  - tag1
+  - tag2
+---
+```
+
+Routing and post lookup use `slug`, so the file name itself can be arbitrary.
 
 ## Getting started
 

@@ -1,0 +1,55 @@
+.frame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 160px;
+	overflow: hidden;
+	border-radius: inherit;
+	background: var(--peach);
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	min-height: inherit;
+	object-fit: cover;
+	background: var(--paper);
+}
+
+.fallback {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	background: var(--tone, var(--peach));
+}
+
+.fallback::before {
+	position: absolute;
+	inset: -20%;
+	content: "";
+	background:
+		linear-gradient(
+			115deg,
+			var(--color-white-alpha-22) 0 10%,
+			transparent 10% 22%,
+			var(--color-white-alpha-14) 22% 32%,
+			transparent 32%
+		),
+		radial-gradient(
+			circle at 68% 32%,
+			var(--color-white-alpha-24),
+			transparent 30%
+		);
+	transform: rotate(-8deg);
+}
+
+.label {
+	position: absolute;
+	left: 16px;
+	bottom: 14px;
+	color: var(--color-white-alpha-72);
+	font-family: var(--mono);
+	font-size: var(--font-sm);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}

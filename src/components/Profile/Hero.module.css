@@ -1,0 +1,144 @@
+.hero {
+	position: relative;
+	overflow: hidden;
+	padding: 80px 28px 86px;
+}
+
+.role {
+	color: var(--ink-soft);
+	font-family: var(--mono);
+	font-size: var(--font-sm);
+	letter-spacing: 0.28em;
+	text-transform: uppercase;
+}
+
+.title {
+	margin: 12px 0 0;
+	color: var(--ink);
+	font-family: var(--serif);
+	font-size: var(--font-hero-title);
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 0.85;
+}
+
+.title span {
+	display: block;
+}
+
+.titleAccent {
+	color: var(--peach);
+	transform: translateX(8%);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 32px;
+	align-items: end;
+	max-width: 100%;
+	margin-top: 56px;
+}
+
+.grid > * {
+	min-width: 0;
+}
+
+.now {
+	width: 100%;
+	overflow: hidden;
+	padding: 16px 20px 14px;
+	border: 2px solid var(--ink);
+	border-radius: 14px;
+	background: var(--paper);
+	box-shadow: 8px 8px 0 var(--ink);
+	transform: rotate(1.2deg);
+}
+
+.nowHeader,
+.clockRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.nowEyebrow,
+.clockLabel,
+.clock {
+	font-family: var(--mono);
+	font-size: var(--font-xs);
+	letter-spacing: 0.18em;
+}
+
+.nowEyebrow,
+.clockLabel {
+	color: var(--ink-soft);
+}
+
+.dot {
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--peach);
+	animation: blink 2s ease-in-out infinite;
+}
+
+.nowList {
+	display: grid;
+	gap: 8px;
+	padding: 0;
+	margin: 12px 0 0;
+	list-style: none;
+}
+
+.nowList li {
+	color: var(--ink);
+	font-family: var(--serif);
+	font-size: var(--font-body-lg);
+	line-height: 1.35;
+}
+
+.clockRow {
+	padding-top: 10px;
+	margin-top: 14px;
+	border-top: 1px dashed var(--ink-soft);
+}
+
+.clock {
+	color: var(--ink);
+	font-size: var(--font-sm);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0;
+}
+
+@media (max-width: 980px) {
+	.hero {
+		padding: 64px 22px 72px;
+	}
+}
+
+@media (max-width: 560px) {
+	.hero {
+		padding-inline: 22px;
+	}
+
+	.title {
+		font-size: var(--font-hero-title-mobile);
+	}
+
+	.grid {
+		margin-top: 38px;
+	}
+
+	.now {
+		width: min(330px, 100%);
+		max-width: 100%;
+		box-shadow: 6px 6px 0 var(--ink);
+		transform: none;
+	}
+
+	.clock {
+		display: none;
+	}
+}

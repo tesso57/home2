@@ -1,0 +1,188 @@
+@import "../node_modules/ress/ress.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=JetBrains+Mono:wght@400;500;700&family=M+PLUS+1:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap");
+
+:root {
+	--color-bg: #fbf2ec;
+	--color-paper: #ffffff;
+	--color-ink: #1a1410;
+	--color-ink-soft: #5a4a40;
+	--color-peach: #cd8b7c;
+	--color-peach-soft: #e7c5bd;
+	--color-peach-tint: #f7e0d6;
+	--color-apricot: #e7981c;
+	--color-teal: #41c9b4;
+	--color-slate: #575771;
+	--color-cream: #fdfbf7;
+	--color-browser-red: #ff5f57;
+	--color-browser-yellow: #febc2e;
+	--color-browser-green: #28c840;
+	--color-brand-github: #171515;
+	--color-brand-zenn: #3ea8ff;
+	--color-brand-x: #000000;
+	--color-brand-note: #41c9b4;
+	--color-brand-mail: #7ace8a;
+	--color-ink-alpha-04: rgba(26, 20, 16, 0.04);
+	--color-ink-alpha-05: rgba(26, 20, 16, 0.045);
+	--color-ink-alpha-08: rgba(26, 20, 16, 0.08);
+	--color-ink-alpha-10: rgba(26, 20, 16, 0.1);
+	--color-ink-alpha-16: rgba(26, 20, 16, 0.16);
+	--color-ink-alpha-24: rgba(26, 20, 16, 0.24);
+	--color-ink-alpha-38: rgba(26, 20, 16, 0.38);
+	--color-ink-alpha-55: rgba(20, 16, 14, 0.55);
+	--color-peach-alpha-18: rgba(205, 139, 124, 0.18);
+	--color-white-alpha-14: rgba(255, 255, 255, 0.14);
+	--color-white-alpha-22: rgba(255, 255, 255, 0.22);
+	--color-white-alpha-24: rgba(255, 255, 255, 0.24);
+	--color-white-alpha-25: rgba(255, 255, 255, 0.25);
+	--color-white-alpha-72: rgba(255, 255, 255, 0.72);
+	--color-white-alpha-86: rgba(255, 255, 255, 0.86);
+	--color-black-alpha-25: rgba(0, 0, 0, 0.25);
+	--bg: var(--color-bg);
+	--paper: var(--color-paper);
+	--ink: var(--color-ink);
+	--ink-soft: var(--color-ink-soft);
+	--ink-faint: var(--color-ink-alpha-08);
+	--line: var(--color-ink);
+	--peach: var(--color-peach);
+	--peach-soft: var(--color-peach-soft);
+	--peach-tint: var(--color-peach-tint);
+	--apricot: var(--color-apricot);
+	--teal: var(--color-teal);
+	--slate: var(--color-slate);
+	--cream: var(--color-cream);
+	--display: "Do Hyeon", "M PLUS 1", "Noto Sans JP", system-ui, sans-serif;
+	--serif: "Do Hyeon", "M PLUS 1", "Noto Sans JP", system-ui, sans-serif;
+	--sans: "M PLUS 1", "Noto Sans JP", "Helvetica Neue", system-ui, sans-serif;
+	--mono: "JetBrains Mono", ui-monospace, monospace;
+	--font-2xs: 0.5625rem;
+	--font-xs: 0.625rem;
+	--font-sm: 0.6875rem;
+	--font-md: 0.75rem;
+	--font-body-sm: 0.8125rem;
+	--font-ui: 0.875rem;
+	--font-body: 1rem;
+	--font-body-lg: 1.0625rem;
+	--font-title-sm: 1.375rem;
+	--font-title-md: 1.6rem;
+	--font-title-lg: 2rem;
+	--font-work-title-compact: clamp(1.0625rem, 1.8vw, 1.1875rem);
+	--font-about-body: clamp(1.25rem, 2vw, 1.65rem);
+	--font-section-title: clamp(2.125rem, 4vw, 3.25rem);
+	--font-page-title: clamp(2.25rem, 5vw, 4.25rem);
+	--font-not-found-title: clamp(2.25rem, 6vw, 4rem);
+	--font-hero-title: clamp(4rem, 13vw, 13.75rem);
+	--font-hero-title-mobile: clamp(3.75rem, 22vw, 6.5rem);
+	--line-width: 1.5px;
+	--site-header-height: 70px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+#app {
+	min-height: 100%;
+}
+
+body {
+	min-height: 100%;
+	overflow-x: hidden;
+	background-color: var(--bg);
+	color: var(--ink);
+	font-family: var(--sans);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: geometricPrecision;
+}
+
+::selection {
+	background: var(--peach);
+	color: var(--cream);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+	outline: 2px solid var(--peach);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+img,
+svg {
+	display: block;
+}
+
+section[id] {
+	scroll-margin-top: var(--site-header-height);
+}
+
+@media (max-width: 760px) {
+	:root {
+		--site-header-height: 104px;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--peach-soft);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--peach);
+}
+
+.mono {
+	font-family: var(--mono);
+	letter-spacing: 0.02em;
+}
+
+.serif {
+	font-family: var(--serif);
+}
+
+.display {
+	font-family: var(--display);
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+@keyframes pop-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px) scale(0.96);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}

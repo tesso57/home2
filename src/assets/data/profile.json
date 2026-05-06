@@ -1,41 +1,58 @@
 {
 	"name": "tesso",
 	"id": "@tesso57",
+	"role": "バックエンドエンジニア / Go × Web × システム設計",
+	"introLead": "バックエンドを主軸に",
+	"introSub": "大きなシステムをつくる。",
+	"introTag": "Go をメインに、信頼できるプロダクトと基盤をつくっています。",
+	"nowLines": [
+		"💻 バックエンドエンジニア",
+		"🌱 社会人 1 年目",
+		"🔧 メイン言語は Go",
+		"💭 デカいシステムを作りたい"
+	],
 	"belongings": [
                 {
                         "name": "東京科学大学情報理工学院 数理計算科学系",
 			"link": "https://educ.titech.ac.jp/is/",
 			"since": "2020-4-1",
-			"until": "2024-3-31"
-		},
-                {
-                        "name": "東京科学大学情報理工学院 数理計算科学系 修士課程",
-			"link": "https://educ.titech.ac.jp/is/",
-			"since": "2024-4-1"
+			"until": "2026-3-31",
+			"category": "edu",
+			"note": "学部から修士課程まで在籍。数学と情報を学び、修士課程では準同型暗号に関する安全性を研究していました。"
 		},
 		{
 			"name": "プログラミング教室 N Code Labo",
 			"link": "https://n-codelabo.jp/",
 			"since": "2020-10-1",
-			"until": "2024-3-31"
+			"until": "2024-3-31",
+			"category": "work",
+			"note": "講師としてプログラミングを教えていました。"
 		},
                 {
                         "name": "東京科学大学デジタル同好会traP",
 			"link": "https://trap.jp",
-			"since": "2020-5-12"
+			"since": "2020-5-12",
+			"until": "2026-3-31",
+			"category": "community",
+			"note": "フロントエンドとゲーム制作を中心に活動していました。"
 		},
 		{
-			"name": "株式会社ナンバーナイン(エンジニアインターン)",
+			"name": "株式会社ナンバーナイン",
 			"link": "https://corp.no9.co.jp/",
-			"since": "2022-11-14"
+			"since": "2022-11-14",
+			"until": "2026-3-31",
+			"category": "work",
+			"note": "エンジニアインターンとして、バックエンド領域の開発に参加していました。"
 		},
 		{
-			"name": "株式会社ナレッジワーク(インターン)",
+			"name": "株式会社ナレッジワーク",
 			"link": "https://knowledgework.com/",
-			"since": "2025-06-01"
+			"since": "2025-06-01",
+			"category": "work",
+			"note": "2025年6月から2026年4月まではインターン、2026年4月からは正社員のソフトウェアエンジニアとして働いています。"
 		}
 	],
-	"about": "暗号とWebとゲームが好きです。大学では、数学とコンピュータの勉強してます。研究室では、準同型暗号に関する安全性を研究しています。サークルでは、フロントエンドとゲーム制作してます。インターン先では、バックエンドエンジニアをしています。",
+	"about": "Go言語を使ったバックエンド開発をしています。大学では数学と情報の勉強をしていました。修士課程では準同型暗号に関する安全性を研究していました。サークルでは、フロントエンドとゲーム制作にも取り組んでいました。",
 	"skills": [
                 {
                         "name": "Go",
@@ -77,49 +94,56 @@
 			"type": "icon",
 			"icon": "mdi:github",
 			"url": "https://github.com/tesso57",
-			"color": "#171515"
+			"color": "var(--color-brand-github)",
+			"folder": "Code"
 		},
 		{
 			"name": "Zenn",
-			"type": "icon",
-			"icon": "simple-icons:zenn",
+			"type": "img",
+			"icon": "zenn.svg",
 			"url": "https://zenn.dev/tesso",
-			"color": "#3EA8FF"
+			"color": "var(--color-brand-zenn)",
+			"folder": "Writing"
 		},
 		{
 			"name": "X",
 			"type": "icon",
 			"icon": "line-md:twitter-x",
 			"url": "https://twitter.com/tesso57",
-			"color": "#000000"
+			"color": "var(--color-brand-x)",
+			"folder": "Social"
 		},
 		{
 			"name": "しずかなインターネット",
 			"type": "img",
 			"icon": "sizu.svg",
 			"url": "https://sizu.me/tesso",
-			"color": "#000000"
+			"color": "var(--color-brand-x)",
+			"folder": "Writing"
 		},
 		{
 			"name": "Speaker Deck",
-			"type": "icon",
-			"icon": "fa6-brands:speaker-deck",
+			"type": "img",
+			"icon": "speakerdeck.svg",
 			"url": "https://speakerdeck.com/tesso57",
-			"color": "#000000"
+			"color": "var(--color-brand-x)",
+			"folder": "Writing"
 		},
 		{
 			"name": "Note",
 			"type": "img",
 			"icon": "note.svg",
 			"url": "https://note.com/tesso57",
-			"color": "#41c9b4"
+			"color": "var(--color-brand-note)",
+			"folder": "Writing"
 		},
 		{
 			"name": "mail@tesso.dev",
 			"type": "icon",
 			"icon": "mdi:email",
 			"url": "mailto:mail@tesso.dev",
-			"color": "#7ace8a"
+			"color": "var(--color-brand-mail)",
+			"folder": "Social"
 		}
 	]
 }
