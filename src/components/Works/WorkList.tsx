@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { PageGutter } from "@/components/Layout/PageGutter";
 import { SectionHeading } from "@/components/Layout/SectionHeading";
 import type { Work } from "@/lib/work";
 import { WorkCard } from "./WorkCard";
@@ -43,22 +44,24 @@ export function WorkList({ works }: WorkListProps) {
 
 	return (
 		<section className={styles.section} id="works">
-			<div className={styles.header}>
-				<SectionHeading eyebrow="03" title="Works" sub="制作物" />
-			</div>
-			<div className={styles.grid}>
-				{entries.map(({ work, imageUrl, index }) => (
-					<div className={cellClassForIndex(index)} key={work.title}>
-						<WorkCard
-							work={work}
-							imageUrl={imageUrl}
-							index={index}
-							total={works.length}
-							onOpen={() => setSelectedIndex(index)}
-						/>
-					</div>
-				))}
-			</div>
+			<PageGutter>
+				<div className={styles.header}>
+					<SectionHeading eyebrow="03" title="Works" sub="制作物" />
+				</div>
+				<div className={styles.grid}>
+					{entries.map(({ work, imageUrl, index }) => (
+						<div className={cellClassForIndex(index)} key={work.title}>
+							<WorkCard
+								work={work}
+								imageUrl={imageUrl}
+								index={index}
+								total={works.length}
+								onOpen={() => setSelectedIndex(index)}
+							/>
+						</div>
+					))}
+				</div>
+			</PageGutter>
 			{selectedWork && selectedIndex !== null ? (
 				<WorkModal
 					work={selectedWork}

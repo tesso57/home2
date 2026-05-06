@@ -2,14 +2,17 @@
 	position: sticky;
 	top: 0;
 	z-index: 40;
+	border-bottom: var(--line-width) solid var(--ink);
+	background: color-mix(in srgb, var(--bg) 88%, transparent);
+	backdrop-filter: blur(8px);
+}
+
+.inner {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 16px;
-	padding: 16px 28px;
-	border-bottom: var(--line-width) solid var(--ink);
-	background: color-mix(in srgb, var(--bg) 88%, transparent);
-	backdrop-filter: blur(8px);
+	padding-block: 16px;
 	min-height: var(--site-header-height);
 }
 
@@ -82,11 +85,11 @@
 }
 
 @media (max-width: 760px) {
-	.header {
+	.inner {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 10px;
-		padding: 14px 18px;
+		padding-block: 14px;
 	}
 
 	.nav {

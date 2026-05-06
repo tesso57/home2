@@ -5,7 +5,8 @@
 
 .article {
 	max-width: 840px;
-	padding: 64px 28px 96px;
+	padding-block: 64px 96px;
+	padding-inline: var(--page-gutter);
 	margin: 0 auto;
 }
 

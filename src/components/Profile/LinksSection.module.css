@@ -1,5 +1,5 @@
 .section {
-	padding: 60px 28px 80px;
+	padding-block: 60px 80px;
 }
 
 .bar {
@@ -195,7 +195,7 @@
 
 @media (max-width: 560px) {
 	.section {
-		padding: 48px 18px 64px;
+		padding-block: 48px 64px;
 	}
 
 	.count {

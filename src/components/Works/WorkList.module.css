@@ -1,5 +1,5 @@
 .section {
-	padding: 60px 28px;
+	padding-block: 60px;
 }
 
 .header {
@@ -49,7 +49,7 @@
 
 @media (max-width: 640px) {
 	.section {
-		padding: 48px 18px;
+		padding-block: 48px;
 	}
 
 	.grid {
