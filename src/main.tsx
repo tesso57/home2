@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import { scheduleAnalytics } from "@/lib/analytics";
 
 const root = document.getElementById("app");
 
@@ -14,3 +15,5 @@ createRoot(root).render(
 		<App />
 	</StrictMode>,
 );
+
+scheduleAnalytics();

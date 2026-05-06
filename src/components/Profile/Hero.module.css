@@ -27,7 +27,7 @@
 }
 
 .titleAccent {
-	color: var(--peach);
+	color: var(--peach-strong);
 	transform: translateX(8%);
 }
 

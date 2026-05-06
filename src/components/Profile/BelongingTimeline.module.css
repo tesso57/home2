@@ -23,7 +23,7 @@
 }
 
 .number {
-	color: var(--peach);
+	color: var(--peach-strong);
 	font-family: var(--mono);
 	font-size: var(--font-md);
 	letter-spacing: 0.24em;
@@ -106,7 +106,7 @@
 	top: 0;
 	padding: 0 4px;
 	background: var(--cream);
-	color: var(--peach);
+	color: var(--peach-strong);
 	font-size: var(--font-2xs);
 	font-weight: 700;
 	letter-spacing: 0.18em;
@@ -288,7 +288,7 @@
 
 .popoverTitle span {
 	flex: none;
-	color: var(--lane-color);
+	color: var(--ink-soft);
 	font-family: var(--mono);
 	font-size: var(--font-xs);
 }

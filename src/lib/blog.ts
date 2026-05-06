@@ -16,7 +16,7 @@ type BlogFrontmatter = {
 
 type ParsedPost = {
 	blog: Blog;
-	body: ComponentType;
+	moduleId: string;
 };
 
 const FRONTMATTER_DELIMITER = "---";
@@ -27,10 +27,9 @@ const postSources = import.meta.glob("@/assets/posts/*.mdx", {
 	query: "?raw",
 }) as Record<string, string>;
 
-const postBodies = import.meta.glob("@/assets/posts/*.mdx", {
-	eager: true,
-	import: "default",
-}) as Record<string, ComponentType>;
+const postBodies = import.meta.glob<{ default: ComponentType }>(
+	"@/assets/posts/*.mdx",
+);
 
 const stripQuotes = (value: string): string => {
 	if (
@@ -132,8 +131,7 @@ const parseFrontmatter = (source: string): BlogFrontmatter => {
 };
 
 const createPost = (moduleId: string, source: string): ParsedPost | null => {
-	const body = postBodies[moduleId];
-	if (!body) {
+	if (!postBodies[moduleId]) {
 		console.warn(`[blog] Missing MDX body module: ${moduleId}`);
 		return null;
 	}
@@ -167,7 +165,7 @@ const createPost = (moduleId: string, source: string): ParsedPost | null => {
 			tags: frontmatter.tags ?? [],
 			date,
 		},
-		body,
+		moduleId,
 	};
 };
 
@@ -189,7 +187,16 @@ for (const post of parsedPosts) {
 
 export const blogs: Blog[] = uniquePosts.map(({ blog }) => blog);
 
-export const postBodiesBySlug: Record<string, ComponentType> =
-	Object.fromEntries(
-		uniquePosts.map(({ blog, body }) => [blog.slug, body]),
-	) as Record<string, ComponentType>;
+const postBodyLoadersBySlug = Object.fromEntries(
+	uniquePosts.map(({ blog, moduleId }) => [blog.slug, postBodies[moduleId]]),
+) as Record<string, (() => Promise<{ default: ComponentType }>) | undefined>;
+
+export const loadPostBodyBySlug = async (slug: string) => {
+	const loader = postBodyLoadersBySlug[slug];
+	if (!loader) {
+		return null;
+	}
+
+	const module = await loader();
+	return module.default;
+};

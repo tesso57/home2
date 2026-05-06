@@ -22,12 +22,7 @@ export function WorkCard({
 	const isLongTitle = work.title.length > 24;
 
 	return (
-		<button
-			className={styles.card}
-			type="button"
-			onClick={onOpen}
-			aria-label={`${work.title} の詳細を開く`}
-		>
+		<button className={styles.card} type="button" onClick={onOpen}>
 			<div className={styles.media}>
 				<ArtFrame src={imageUrl} alt={work.title} index={index} />
 				<span className={styles.index}>

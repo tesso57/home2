@@ -10,7 +10,7 @@ type WorkListProps = {
 	works: Work[];
 };
 
-const assetUrls = import.meta.glob<string>("../../assets/*.{svg,png,gif}", {
+const assetUrls = import.meta.glob<string>("../../assets/*.{svg,webp}", {
 	eager: true,
 	import: "default",
 });

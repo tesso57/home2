@@ -19,7 +19,13 @@ export function ArtFrame({ src, alt, index = 0 }: ArtFrameProps) {
 	if (src) {
 		return (
 			<div className={styles.frame}>
-				<img className={styles.image} src={src} alt={alt} loading="lazy" />
+				<img
+					className={styles.image}
+					src={src}
+					alt={alt}
+					loading="lazy"
+					decoding="async"
+				/>
 			</div>
 		);
 	}
