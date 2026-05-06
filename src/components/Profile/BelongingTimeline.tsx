@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { PageGutter } from "@/components/Layout/PageGutter";
 import type { Belonging } from "@/lib/profile";
 import type { TimelineLane, TimelineLaneBar } from "@/lib/timeline";
 import { createTimelineModel, getTimelinePercent } from "@/lib/timeline";
@@ -87,7 +88,7 @@ export function BelongingTimeline({ items }: BelongingTimelineProps) {
 
 	return (
 		<section className={styles.section} id="belonging">
-			<div className={styles.header}>
+			<PageGutter className={styles.header}>
 				<div>
 					<div className={styles.titleRow}>
 						<span className={styles.number}>02</span>
@@ -106,9 +107,9 @@ export function BelongingTimeline({ items }: BelongingTimelineProps) {
 						</span>
 					))}
 				</div>
-			</div>
+			</PageGutter>
 
-			<div className={styles.scroller} ref={scrollerRef}>
+			<PageGutter className={styles.scroller} ref={scrollerRef}>
 				<div className={styles.timeline}>
 					<div className={styles.years}>
 						{years.map((year) => (
@@ -162,13 +163,13 @@ export function BelongingTimeline({ items }: BelongingTimelineProps) {
 						))}
 					</div>
 				</div>
-			</div>
-			<div className={styles.hint}>
+			</PageGutter>
+			<PageGutter className={styles.hint}>
 				<span>
 					{items.length} entries · {startYear} → now
 				</span>
 				<span>← scroll · click bar for details →</span>
-			</div>
+			</PageGutter>
 		</section>
 	);
 }

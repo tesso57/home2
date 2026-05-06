@@ -74,6 +74,9 @@
 	--font-hero-title: clamp(4rem, 13vw, 13.75rem);
 	--font-hero-title-mobile: clamp(3.75rem, 22vw, 6.5rem);
 	--line-width: 1.5px;
+	--page-gutter-block: clamp(1.5rem, 3vw, 2.5rem);
+	--page-gutter-inline: clamp(2rem, 5vw, 4rem);
+	--page-gutter: var(--page-gutter-inline);
 	--site-header-height: 70px;
 }
 
@@ -134,6 +137,7 @@ section[id] {
 
 @media (max-width: 760px) {
 	:root {
+		--page-gutter: 22px;
 		--site-header-height: 104px;
 	}
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { PageGutter } from "./PageGutter";
 import styles from "./SiteNav.module.css";
 
 const links = [
@@ -12,20 +13,22 @@ const links = [
 export function SiteNav() {
 	return (
 		<header className={styles.header}>
-			<Link className={styles.brand} to="/">
-				<span className={styles.mark}>t</span>
-				<span className={styles.name}>
-					<span className={styles.nameBase}>tesso</span>
-					<span className={styles.nameSuffix}>.dev</span>
-				</span>
-			</Link>
-			<nav className={styles.nav} aria-label="Primary">
-				{links.map((link) => (
-					<a className={styles.link} href={link.href} key={link.href}>
-						{link.label}
-					</a>
-				))}
-			</nav>
+			<PageGutter className={styles.inner}>
+				<Link className={styles.brand} to="/">
+					<span className={styles.mark}>t</span>
+					<span className={styles.name}>
+						<span className={styles.nameBase}>tesso</span>
+						<span className={styles.nameSuffix}>.dev</span>
+					</span>
+				</Link>
+				<nav className={styles.nav} aria-label="Primary">
+					{links.map((link) => (
+						<a className={styles.link} href={link.href} key={link.href}>
+							{link.label}
+						</a>
+					))}
+				</nav>
+			</PageGutter>
 		</header>
 	);
 }
