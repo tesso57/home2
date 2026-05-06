@@ -77,7 +77,7 @@
 }
 
 .body a {
-	color: var(--peach);
+	color: var(--peach-strong);
 	text-decoration: underline;
 	text-underline-offset: 3px;
 }

@@ -21,7 +21,7 @@
 	align-items: center;
 	flex: none;
 	gap: 14px;
-	color: var(--peach);
+	color: var(--peach-strong);
 	transition: color 0.2s ease;
 }
 
@@ -35,7 +35,7 @@
 	height: 36px;
 	place-items: center;
 	border-radius: 10px;
-	background: var(--peach);
+	background: var(--peach-strong);
 	color: var(--paper);
 	font-family: var(--display);
 	font-size: var(--font-title-sm);
@@ -47,7 +47,7 @@
 
 .brand:hover .mark {
 	background: var(--ink);
-	box-shadow: 3px 3px 0 var(--peach);
+	box-shadow: 3px 3px 0 var(--peach-strong);
 }
 
 .name {
@@ -60,7 +60,7 @@
 }
 
 .nameSuffix {
-	color: var(--peach);
+	color: var(--peach-strong);
 }
 
 .nav {
@@ -80,8 +80,8 @@
 }
 
 .link:hover {
-	border-bottom-color: var(--peach);
-	color: var(--peach);
+	border-bottom-color: var(--peach-strong);
+	color: var(--peach-strong);
 }
 
 @media (max-width: 760px) {

@@ -1,8 +1,13 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
-import { BlogPost } from "@/components/Blog/BlogPost";
 import { Home } from "@/views/Home";
 import { NotFound } from "@/views/NotFound";
+
+const BlogPost = lazy(() =>
+	import("@/components/Blog/BlogPost").then(({ BlogPost }) => ({
+		default: BlogPost,
+	})),
+);
 
 type AnchorRedirectProps = {
 	hash: string;
@@ -24,7 +29,14 @@ export default function App() {
 				<Route path="/works" element={<AnchorRedirect hash="#works" />} />
 				<Route path="/blog" element={<AnchorRedirect hash="#blog" />} />
 				<Route path="/blogs" element={<AnchorRedirect hash="#blog" />} />
-				<Route path="/blog/:slug" element={<BlogPost />} />
+				<Route
+					path="/blog/:slug"
+					element={
+						<Suspense fallback={null}>
+							<BlogPost />
+						</Suspense>
+					}
+				/>
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>

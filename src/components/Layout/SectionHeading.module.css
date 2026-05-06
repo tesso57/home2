@@ -10,7 +10,7 @@
 }
 
 .eyebrow {
-	color: var(--peach);
+	color: var(--peach-strong);
 	font-family: var(--mono);
 	font-size: var(--font-md);
 	font-weight: 700;
