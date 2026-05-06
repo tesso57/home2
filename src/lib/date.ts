@@ -2,8 +2,13 @@ export type Duration = {
 	since: Date;
 	until?: Date;
 };
+
+const pad2 = (value: number) => String(value).padStart(2, "0");
+
 export const format = (date?: Date) =>
-	date ? date.toISOString().slice(0, 10).replace(/-/g, "/") : "";
+	date
+		? `${date.getFullYear()}/${pad2(date.getMonth() + 1)}/${pad2(date.getDate())}`
+		: "";
 
 export function formatDuration(
 	duration: Duration,

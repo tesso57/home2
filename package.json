@@ -4,37 +4,33 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite",
-		"build": "run-p type-check build-only",
+		"build": "tsc --noEmit && vite build",
 		"preview": "vite preview --port 4173",
-		"build-only": "vite build",
-		"type-check": "vue-tsc --noEmit",
+		"type-check": "tsc --noEmit",
 		"lint": "biome check --write"
 	},
 	"dependencies": {
-		"@rollup/plugin-babel": "^6.0.4",
-		"pinia": "^3.0.3",
-		"ress": "^5.0.2",
-		"vue-router": "^4.5.1"
+		"react": "^19.2.5",
+		"react-dom": "^19.2.5",
+		"react-router": "^7.15.0",
+		"ress": "^5.0.2"
 	},
 	"lint-staged": {
-		"*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": ["biome check --apply"]
+		"*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
+			"biome check --apply"
+		]
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.5-nightly.81fdedb",
-		"@iconify/vue": "^5.0.0",
-		"@mdx-js/mdx": "^3.1.0",
+		"@biomejs/biome": "^2.4.14",
+		"@mdx-js/mdx": "^3.1.1",
 		"@mdx-js/rollup": "^3.1.1",
-		"@mdx-js/vue": "^3.1.1",
 		"@types/mdx": "^2.0.13",
-		"@types/node": "^24.7.2",
-		"@vitejs/plugin-vue": "^6.0.1",
-		"@vue/tsconfig": "^0.8.1",
-		"lint-staged": "^16.2.6",
-		"npm-run-all": "^4.1.5",
-		"sass": "^1.93.2",
-		"typescript": "^5.9.3",
-		"vite": "^7.1.5",
-		"vue": "^3.5.22",
-		"vue-tsc": "^3.0.6"
+		"@types/node": "^25.6.0",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^6.0.1",
+		"lint-staged": "^16.4.0",
+		"typescript": "^6.0.3",
+		"vite": "^8.0.10"
 	}
 }

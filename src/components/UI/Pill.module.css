@@ -1,0 +1,25 @@
+.pill {
+	display: inline-flex;
+	align-items: center;
+	min-height: 24px;
+	padding: 4px 10px;
+	border: 1px solid var(--ink);
+	border-radius: 999px;
+	background: var(--peach-tint);
+	color: var(--ink);
+	font-family: var(--mono);
+	font-size: var(--font-sm);
+	letter-spacing: 0.06em;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.ink {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.paper {
+	background: var(--paper);
+	color: var(--ink);
+}

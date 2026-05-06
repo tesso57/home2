@@ -1,3 +1,29 @@
 {
-	"extends": "./tsconfig.vue-tsc.json"
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"strict": true,
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"allowSyntheticDefaultImports": true,
+		"noFallthroughCasesInSwitch": true,
+		"noPropertyAccessFromIndexSignature": false,
+		"noUncheckedIndexedAccess": true,
+		"verbatimModuleSyntax": true,
+		"jsx": "react-jsx",
+		"ignoreDeprecations": "6.0",
+		"baseUrl": ".",
+		"lib": ["esnext", "dom"],
+		"skipLibCheck": true,
+		"noEmit": true,
+		"incremental": true,
+		"tsBuildInfoFile": "./node_modules/.tsbuildinfo",
+		"types": ["vite/client", "@types/mdx"],
+		"paths": {
+			"@/*": ["src/*"]
+		}
+	},
+	"include": ["src", "env.d.ts", "vite.config.ts"]
 }
