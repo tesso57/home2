@@ -15,8 +15,8 @@ converted to pages through React Router.
 
 ## Requirements
 
-- Node.js 20 or newer
-- npm 9 or newer
+- Node.js 26
+- npm 11 or newer
 
 ## Customize configuration
 
@@ -76,6 +76,7 @@ npm run preview
 ### Lint with [Biome](https://biomejs.dev/)
 
 Use Biome to lint and format the project:
+
 ```sh
 npm run lint
 ```
