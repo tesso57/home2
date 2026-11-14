@@ -56,7 +56,8 @@
 				}
 			],
 			"headers": {
-				"Content-Type": "text/markdown; charset=utf-8"
+				"Content-Type": "text/markdown; charset=utf-8",
+				"Link": "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
 			},
 			"status": 404,
 			"dest": "/agent/404.md"
@@ -94,7 +95,8 @@
 			],
 			"headers": {
 				"Content-Type": "text/markdown; charset=utf-8",
-				"Vary": "Accept"
+				"Vary": "Accept",
+				"Link": "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
 			},
 			"status": 404,
 			"dest": "/agent/404.md"
@@ -102,7 +104,8 @@
 		{
 			"src": "^/.*$",
 			"headers": {
-				"Vary": "Accept"
+				"Vary": "Accept",
+				"Link": "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
 			},
 			"status": 404,
 			"dest": "/404.html"
