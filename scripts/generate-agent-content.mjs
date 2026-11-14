@@ -1,7 +1,11 @@
 import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
+import { basename, dirname, extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createProcessor } from "@mdx-js/mdx";
+import React from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { StaticRouter } from "react-router";
+import { createServer } from "vite";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const dist = join(root, "dist");
@@ -59,16 +63,15 @@ function parsePost(source, filename) {
 		.join("\n")
 		.trim();
 	const tree = processor.parse(body);
+	let requiresRendering = false;
 	const inspect = (node) => {
 		if (node.type.startsWith("mdx")) {
-			throw new Error(
-				`${filename}: ${node.type} cannot be represented as Markdown`,
-			);
+			requiresRendering = true;
 		}
 		for (const child of node.children ?? []) inspect(child);
 	};
 	inspect(tree);
-	return { slug, title, date, body };
+	return { slug, title, date, body, requiresRendering };
 }
 
 async function write(path, content) {
@@ -130,17 +133,64 @@ const home = [
 	...profile.links.map((link) => `- ${mdLink(link.name, link.url)}`),
 ].join("\n\n");
 
-await rm(join(dist, "agent", "blog"), { recursive: true, force: true });
-await write("agent/index.md", home);
-await write(
-	"agent/404.md",
-	`# ページが見つかりませんでした\n\n- [ホーム](${siteUrl}/)\n- [ブログ](${siteUrl}/#blog)\n- [サイトマップ](${siteUrl}/sitemap.xml)`,
-);
-for (const post of posts) {
+let server;
+try {
+	let loadPostBodyBySlug;
+	let builtAssets;
+	if (posts.some((post) => post.requiresRendering)) {
+		builtAssets = await readdir(join(dist, "assets"));
+		server = await createServer({
+			root,
+			appType: "custom",
+			logLevel: "silent",
+			mode: "production",
+			server: { middlewareMode: true },
+		});
+		({ loadPostBodyBySlug } = await server.ssrLoadModule("/src/lib/blog.ts"));
+	}
+	await rm(join(dist, "agent", "blog"), { recursive: true, force: true });
+	await write("agent/index.md", home);
 	await write(
-		`agent/blog/${post.slug}.md`,
-		`# ${escapeMarkdown(post.title)}\n\n${post.date}\n\n${post.body}`,
+		"agent/404.md",
+		`# ページが見つかりませんでした\n\n- [ホーム](${siteUrl}/)\n- [ブログ](${siteUrl}/#blog)\n- [サイトマップ](${siteUrl}/sitemap.xml)`,
 	);
+	for (const post of posts) {
+		let body = post.body;
+		if (post.requiresRendering) {
+			const Body = await loadPostBodyBySlug(post.slug);
+			if (!Body) throw new Error(`Cannot load MDX post ${post.slug}`);
+			const html = renderToStaticMarkup(
+				React.createElement(
+					StaticRouter,
+					{ location: `/blog/${encodeURIComponent(post.slug)}` },
+					React.createElement(Body),
+				),
+			);
+			const publishedHtml = html.replace(
+				/(src|href)="\/src\/assets\/([^"?#]+)"/g,
+				(_, attr, path) => {
+					const extension = extname(path);
+					const name = basename(path, extension);
+					const candidates = builtAssets.filter(
+						(asset) =>
+							asset.startsWith(`${name}-`) && asset.endsWith(extension),
+					);
+					if (candidates.length !== 1) {
+						throw new Error(`Cannot identify built asset for ${path}`);
+					}
+					return `${attr}="/assets/${candidates[0]}"`;
+				},
+			);
+			// HTML is valid Markdown and preserves components that have no Markdown equivalent.
+			body = `<div>\n${publishedHtml}\n</div>`;
+		}
+		await write(
+			`agent/blog/${post.slug}.md`,
+			`# ${escapeMarkdown(post.title)}\n\n${post.date}\n\n${body}`,
+		);
+	}
+} finally {
+	await server?.close();
 }
 const urls = [`${siteUrl}/`, ...posts.map((post) => postUrl(post.slug))];
 await write(

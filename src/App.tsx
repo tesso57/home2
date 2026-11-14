@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
+import { RouteMetadata } from "@/components/Layout/RouteMetadata";
 import { Home } from "@/views/Home";
 import { NotFound } from "@/views/NotFound";
 
@@ -24,6 +25,7 @@ function AnchorRedirect({ hash }: AnchorRedirectProps) {
 export default function App() {
 	return (
 		<BrowserRouter>
+			<RouteMetadata />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/works" element={<AnchorRedirect hash="#works" />} />

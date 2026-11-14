@@ -12,8 +12,7 @@
 		{
 			"src": "^/blog/((?!\\.{1,2}(?:/|$))(?!(?:[^/]*%(?:2[fF]|5[cC]|2[eE]|25|23|3[fF]|0[0-9a-fA-F]|1[0-9a-fA-F]|7[fF])))[^/\\\\?#]+?)/?$",
 			"headers": {
-				"Vary": "Accept",
-				"Link": "</agent/blog/$1.md>; rel=\"alternate\"; type=\"text/markdown\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+				"Vary": "Accept"
 			},
 			"continue": true
 		},
@@ -41,7 +40,8 @@
 				}
 			],
 			"headers": {
-				"Content-Type": "text/markdown; charset=utf-8"
+				"Content-Type": "text/markdown; charset=utf-8",
+				"Link": "</agent/blog/$1.md>; rel=\"alternate\"; type=\"text/markdown\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
 			},
 			"dest": "/agent/blog/$1.md",
 			"check": true
@@ -64,7 +64,10 @@
 		{
 			"src": "^/blog/((?!\\.{1,2}(?:/|$))(?!(?:[^/]*%(?:2[fF]|5[cC]|2[eE]|25|23|3[fF]|0[0-9a-fA-F]|1[0-9a-fA-F]|7[fF])))[^/\\\\?#]+?)/?$",
 			"dest": "/blog/$1/index.html",
-			"check": true
+			"check": true,
+			"headers": {
+				"Link": "</agent/blog/$1.md>; rel=\"alternate\"; type=\"text/markdown\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+			}
 		},
 		{
 			"src": "^/(works|blog|blogs)/?$",
