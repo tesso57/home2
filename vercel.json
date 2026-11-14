@@ -1,3 +1,114 @@
 {
-	"rewrites": [{ "source": "/(.*)", "destination": "/" }]
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"routes": [
+		{
+			"src": "^/$",
+			"headers": {
+				"Vary": "Accept",
+				"Link": "</agent/index.md>; rel=\"alternate\"; type=\"text/markdown\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+			},
+			"continue": true
+		},
+		{
+			"src": "^/blog/((?!\\.{1,2}(?:/|$))(?!(?:[^/]*%(?:2[fF]|5[cC]|2[eE]|25|23|3[fF]|0[0-9a-fA-F]|1[0-9a-fA-F]|7[fF])))[^/\\\\?#]+?)/?$",
+			"headers": {
+				"Vary": "Accept"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/$",
+			"has": [
+				{
+					"type": "header",
+					"key": "accept",
+					"value": "(?:^|.*,\\s*)\\s*[Tt][Ee][Xx][Tt]/[Mm][Aa][Rr][Kk][Dd][Oo][Ww][Nn](?=\\s*(?:;|,|$))(?![^,]*;\\s*[qQ]\\s*=\\s*0(?:\\.0{0,3})?(?:\\s*;|\\s*,|\\s*$))[^,]*(?:,.*)?"
+				}
+			],
+			"headers": {
+				"Content-Type": "text/markdown; charset=utf-8"
+			},
+			"dest": "/agent/index.md"
+		},
+		{
+			"src": "^/blog/((?!\\.{1,2}(?:/|$))(?!(?:[^/]*%(?:2[fF]|5[cC]|2[eE]|25|23|3[fF]|0[0-9a-fA-F]|1[0-9a-fA-F]|7[fF])))[^/\\\\?#]+?)/?$",
+			"has": [
+				{
+					"type": "header",
+					"key": "accept",
+					"value": "(?:^|.*,\\s*)\\s*[Tt][Ee][Xx][Tt]/[Mm][Aa][Rr][Kk][Dd][Oo][Ww][Nn](?=\\s*(?:;|,|$))(?![^,]*;\\s*[qQ]\\s*=\\s*0(?:\\.0{0,3})?(?:\\s*;|\\s*,|\\s*$))[^,]*(?:,.*)?"
+				}
+			],
+			"headers": {
+				"Content-Type": "text/markdown; charset=utf-8",
+				"Link": "</agent/blog/$1.md>; rel=\"alternate\"; type=\"text/markdown\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+			},
+			"dest": "/agent/blog/$1.md",
+			"check": true
+		},
+		{
+			"src": "^/blog/((?!\\.{1,2}(?:/|$))(?!(?:[^/]*%(?:2[fF]|5[cC]|2[eE]|25|23|3[fF]|0[0-9a-fA-F]|1[0-9a-fA-F]|7[fF])))[^/\\\\?#]+?)/?$",
+			"has": [
+				{
+					"type": "header",
+					"key": "accept",
+					"value": "(?:^|.*,\\s*)\\s*[Tt][Ee][Xx][Tt]/[Mm][Aa][Rr][Kk][Dd][Oo][Ww][Nn](?=\\s*(?:;|,|$))(?![^,]*;\\s*[qQ]\\s*=\\s*0(?:\\.0{0,3})?(?:\\s*;|\\s*,|\\s*$))[^,]*(?:,.*)?"
+				}
+			],
+			"headers": {
+				"Content-Type": "text/markdown; charset=utf-8",
+				"Link": "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+			},
+			"status": 404,
+			"dest": "/agent/404.md"
+		},
+		{
+			"src": "^/blog/((?!\\.{1,2}(?:/|$))(?!(?:[^/]*%(?:2[fF]|5[cC]|2[eE]|25|23|3[fF]|0[0-9a-fA-F]|1[0-9a-fA-F]|7[fF])))[^/\\\\?#]+?)/?$",
+			"dest": "/blog/$1/index.html",
+			"check": true,
+			"headers": {
+				"Link": "</agent/blog/$1.md>; rel=\"alternate\"; type=\"text/markdown\", </sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+			}
+		},
+		{
+			"src": "^/(works|blog|blogs)/?$",
+			"dest": "/index.html"
+		},
+		{
+			"src": "^/agent/.*\\.md$",
+			"headers": {
+				"Content-Type": "text/markdown; charset=utf-8"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/.*$",
+			"has": [
+				{
+					"type": "header",
+					"key": "accept",
+					"value": "(?:^|.*,\\s*)\\s*[Tt][Ee][Xx][Tt]/[Mm][Aa][Rr][Kk][Dd][Oo][Ww][Nn](?=\\s*(?:;|,|$))(?![^,]*;\\s*[qQ]\\s*=\\s*0(?:\\.0{0,3})?(?:\\s*;|\\s*,|\\s*$))[^,]*(?:,.*)?"
+				}
+			],
+			"headers": {
+				"Content-Type": "text/markdown; charset=utf-8",
+				"Vary": "Accept",
+				"Link": "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+			},
+			"status": 404,
+			"dest": "/agent/404.md"
+		},
+		{
+			"src": "^/.*$",
+			"headers": {
+				"Vary": "Accept",
+				"Link": "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
+			},
+			"status": 404,
+			"dest": "/404.html"
+		}
+	]
 }

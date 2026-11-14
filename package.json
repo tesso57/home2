@@ -4,9 +4,10 @@
 	"version": "0.0.0",
 	"scripts": {
 		"dev": "vite",
-		"build": "tsc --noEmit && vite build",
+		"build": "tsc --noEmit && vite build && node scripts/generate-agent-content.mjs && node scripts/prerender.mjs",
 		"preview": "vite preview --port 4173",
 		"test": "node --test tests/*.test.mjs",
+		"test:build": "node --test tests/generated/*.test.mjs",
 		"type-check": "tsc --noEmit",
 		"lint": "biome check --write"
 	},
