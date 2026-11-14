@@ -1,5 +1,5 @@
-import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
+import { readFileSync, realpathSync } from "node:fs";
+import { dirname, extname, resolve } from "node:path";
 import { fileURLToPath, URL } from "node:url";
 
 import mdx from "@mdx-js/rollup";
@@ -8,6 +8,9 @@ import { defineConfig, type Plugin } from "vite";
 
 const srcPath = fileURLToPath(new URL("./src", import.meta.url));
 const repoPath = fileURLToPath(new URL(".", import.meta.url));
+const postsPath = realpathSync(
+	fileURLToPath(new URL("./src/assets/posts", import.meta.url)),
+);
 const FRONTMATTER_DELIMITER = "---";
 
 const resolveMdxRawPath = (source: string, importer?: string): string => {
@@ -72,7 +75,16 @@ const mdxRawPlugin = (): Plugin => ({
 		}
 
 		const filepath = id.slice("\0mdx-raw:".length);
-		return `export default ${JSON.stringify(readFileSync(filepath, "utf8"))};`;
+		let realPath: string;
+		try {
+			realPath = realpathSync(filepath);
+		} catch {
+			return null;
+		}
+		if (dirname(realPath) !== postsPath || extname(realPath) !== ".mdx") {
+			return null;
+		}
+		return `export default ${JSON.stringify(readFileSync(realPath, "utf8"))};`;
 	},
 });
 
