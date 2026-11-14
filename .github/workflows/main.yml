@@ -17,6 +17,7 @@ jobs:
           node-version: 26
       - uses: actions/checkout@v6
       - run: npm ci
+      - run: npm test
   build:
     name: Build
     runs-on: ubuntu-latest
