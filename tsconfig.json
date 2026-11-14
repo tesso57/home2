@@ -13,8 +13,6 @@
 		"noUncheckedIndexedAccess": true,
 		"verbatimModuleSyntax": true,
 		"jsx": "react-jsx",
-		"ignoreDeprecations": "6.0",
-		"baseUrl": ".",
 		"lib": ["esnext", "dom"],
 		"skipLibCheck": true,
 		"noEmit": true,
@@ -22,7 +20,7 @@
 		"tsBuildInfoFile": "./node_modules/.tsbuildinfo",
 		"types": ["vite/client", "@types/mdx"],
 		"paths": {
-			"@/*": ["src/*"]
+			"@/*": ["./src/*"]
 		}
 	},
 	"include": ["src", "env.d.ts", "vite.config.ts"]
